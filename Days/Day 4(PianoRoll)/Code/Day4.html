@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Piano roll</title>
+        <meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "../../../Fonts/fonts.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/homeButton.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/scrollbar.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/footer.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/list.css">
+		<link rel = "stylesheet" href = "../../../Highlight/styles/zenburn.css">
+		<script src="../../../Highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<h1 id = "title">Piano roll</h1>
+		<div id = "list">
+			<h2> Можно и на пианинке поиграть!</h2>
+			<br>
+			<p> Для начала, создадим сами клавиши.</p>
+			<pre>
+				<h2 class = "htmlT">html:</h2>
+				<code class = "html">&lt;div class = "bottom red"    onclick = "soundClick('red')">&lt;/div>
+&lt;div class = "bottom orange" onclick = "soundClick('orange')">&lt;/div>
+&lt;div class = "bottom yellow" onclick = "soundClick('yellow')">&lt;/div>
+&lt;div class = "bottom green"  onclick = "soundClick('green')">&lt;/div>
+&lt;div class = "bottom cyan"   onclick = "soundClick('cyan')">&lt;/div>
+&lt;div class = "bottom blue"   onclick = "soundClick('blue')">&lt;/div></code>
+			</pre>
+			<p> Не забудем про стили</p>
+			<pre>
+				<h2 class = "cssT">CSS:</h2>
+				<code class = "css">.bottom
+{
+    border: 2px solid black;
+    display: inline-block;
+    margin: 0;
+    width: 75px;
+    height: 400px;
+    background: #f5f5f5;
+}
+
+.bottom:hover
+{
+    background: #dbdbdb;
+}
+
+.red:active
+{
+    background: red;
+}
+
+.orange:active
+{
+    background: orange;
+}
+
+.yellow:active
+{
+    background: yellow;
+}
+
+.green:active
+{
+    background: green;
+}
+
+.cyan:active
+{
+    background: #42aaff;
+}
+
+.blue:active
+{
+    background: blue;
+}</code>
+			</pre>
+			<h2>Перейдем же к скрипту</h2>
+			<pre>
+				<code class = "javascript">var a = new Audio("url");
+a.play();</code>
+			</pre>
+			<p> Создает новый элемент с типом Audio, с указанием url звукового файла в параметрах.</p>
+			<p> Метод a.play() воспроизводит звуковой файл.</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code class = "javascript">var red = new Audio("red.wav");
+var orange = new Audio("orange.wav");
+var yellow = new Audio("yellow.wav");
+var green = new Audio("green.wav");
+var cyan= new Audio("cyan.wav");
+var blue = new Audio("blue.wav");
+
+function soundClick(button) {
+    switch(button) {
+	case "red":
+		red.stop();// остановка
+		red.play();// воспроизведение 
+		break;
+		
+	case "orange":
+		orange.stop();
+		orange.play();
+		break;
+		
+	case "yellow":
+		yellow.stop();
+		yellow.play();
+		break;
+		
+	case "green":
+		green.stop();
+		green.play();
+		break;
+		
+	case "cyan":
+		cyan.stop();
+		cyan.play();
+		break;
+		
+	case "blue":
+		blue.stop();
+		blue.play();
+		break;
+    }
+}
+// функция остановки
+HTMLAudioElement.prototype.stop = function() {
+	this.pause();// приостанавливаем 
+	this.currentTime = 0.0;// обнуляем время воспроизведения
+}</code>
+			</pre>
+			<p> У элемента Audio нет метода остановки звука, но есть метод pause(), который приостанавливает воспроизведение.</p>
+			<p> И метод currentTime, который отвечает за текущее время воспроизведения звукового файла.</p>
+			<p> Пользуясь этими методами, я написал функцию остановки воспроизведения звукового файла.</p>
+			<h2> Что почитать?</h2>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function" target = "_blank">function()</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/switch" target = "_blank">switch</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/API/HTMLAudioElement" target = "_blank">Audio</a></p>
+		</div>
+		<a href = "../../../index.html" class = "home test">Home</a>
+		<footer>
+			<span id = "copyright">&copy; Hugant 2016</span>
+			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+		</footer>
+	</body>
+</html>

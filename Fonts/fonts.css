@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Open Sans Light';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Light'), local('OpenSansLight-Regular'),
+         url(OpenSansLight/OpenSansLight.woff) format('woff'),
+         url(OpenSansLight/OpenSansLight.ttf)  format('truetype');
+}

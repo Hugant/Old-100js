@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>The colors of the day</title>
+        <meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "../../../Fonts/fonts.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/homeButton.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/scrollbar.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/footer.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/list.css">
+		<link rel = "stylesheet" href = "../../../Highlight/styles/zenburn.css">
+		<script src="../../../Highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<h1 id = "title">The colors of the day</h1>
+		<div id = "list">
+			<h2> Сегодня мы создадим день, который покажет нам цвета каждой секунды.</h2>
+			<br>
+			<p> Как обычно, начнем с html разметки.</p>
+			<pre>
+				<h2 class = "htmlT">html:</h2>
+				<code>&lt;div class = "time">
+    &lt;h1>The current Time:&lt;/h1>
+    &lt;div id = "hours"   class = "timer">&lt;/div> 
+    &lt;div id = "minutes" class = "timer">&lt;/div> 
+    &lt;div id = "seconds" class = "timer">&lt;/div> 
+&lt;/div>
+&lt;div class = "color">
+    &lt;h1>The current Color:&lt;/h1>
+    &lt;div id = "ColorH" class = "timer">&lt;/div>
+    &lt;div id = "ColorM" class = "timer">&lt;/div> 
+    &lt;div id = "ColorS" class = "timer">&lt;/div>  
+&lt;/div></code>
+			</pre>
+			<p> Не забываем добавить тегу &lt;body> идентификатор id = "body".</p>
+			<br>
+			<p> Для вывода цыфр мы должны использовать моноширинный шрифт, я выбрал несколько:  Monaco, Consolas, Lucida Console, monospace</p>
+			<br>
+			<p> Добавим стили</p>
+			<pre>
+				<h2 class = "cssT">CSS:</h2>
+				<code class = "css">h1
+{
+    font-size: 50px;
+    text-align: center;
+    color:white;
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.6);
+}
+
+.color, .time
+{
+    text-align:center;
+}
+
+.timer
+{
+    display: inline;
+    text-align: center;
+    color: white;
+    font-size: 130px;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.6);
+}</code>
+			</pre>
+			<p> Осталось написать скрипт, который будет выводить нам время, цвет и изменять фон.</p>
+			<pre>
+				<code class = "javascript">var time = new Date();</code>
+			</pre>
+			<p> В переменную time присваивают объект типа Date, который предстовляет собой момент времени в формате "Sat Oct 15 2016 21:35:24 GMT+0700".</p>
+			<br>
+			<p> Теперь из переменной time можно извлеч секунды, минуты, часы.</p>
+			<pre>
+				<code class = "javascript">var seconds = time.getSeconds();
+var minutes = time.getMinutes();
+var hours = time.getHours();</code>
+			</pre>
+			<p> Свойство innerHTML представляет собой содержимое элемента, которое хронится в нем в виде строки.</p>
+			<pre>
+				<code class = "javascript">document.getElementById("id").innerHTML</code>
+			</pre>
+			<p> Метод toUpperCase() переводит строку в заглавные буквы.</p>
+			<p> Метод Math.round() возвращает число,округленное к ближайшему целому числу.</p>
+			<p> Метод [число].toString([radix]) возвращает строковое представление числа.</p>
+			<p> Где radix это число между 2 и 36, определяющее основание системы счисления в которой нужно представить число(Это необязательный параметр).</p>
+			<br>
+			<h2> Теперь мы можем написать основную функцию.</h2>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code class = "javascript">function time()
+{
+    var time = new Date();
+    var hours = time.getHours();// получаем часы
+    var minutes = time.getMinutes();// получаем минуты
+    var seconds = time.getSeconds();// получаем секунды
+
+    document.getElementById("hours").innerHTML = CheckTime(hours) + ":";
+    document.getElementById("minutes").innerHTML = CheckTime(minutes) + ":";
+    document.getElementById("seconds").innerHTML = CheckTime(seconds);
+
+    var hoursC = Math.round(255 * (hours / 23));
+    var minutesC = Math.round(255 * (minutes / 59));
+    var secondsC = Math.round(255 * (seconds / 59));
+    
+    colorH = CheckColor(hoursC.toString(16)).toUpperCase();
+    colorM = CheckColor(minutesC.toString(16)).toUpperCase();
+    colorS = CheckColor(secondsC.toString(16)).toUpperCase();
+    
+    document.getElementById("ColorH").innerHTML = colorH;
+    document.getElementById("ColorM").innerHTML = colorM;
+    document.getElementById("ColorS").innerHTML = colorS;
+    
+    document.getElementById("body").style.backgroundColor = "#" + colorH + colorM + colorS;
+}</code>
+			</pre>
+			<p> Вы наверное заинтересовались, что за функции CheckTime() и CheckColor().</p>
+			<p> Они нужны для корректного вывода чисел и цвета.</p>
+			<p> К примеру, если число меньше 10, тогда к нему добавить нуль в начале числа: 01, 04, 05.</p>
+			<pre>
+				<code class = "javascript">function CheckTime(time)
+{
+    if(time < 10)
+        time = "0" + time;
+    return time;
+}</code>
+			</pre>
+			<p> Тоже самое с цветом, если количество символов меньше 2, добовляем нуль: 0A, 03, 0F.</p>
+			<pre>
+				<code class = "javascript">function CheckColor(color)
+{
+    if(color.length < 2)
+        color = "0" + color;
+    return color;
+}</code>
+			</pre>
+			<p> Теперь нам нужно запускать функцию time() каждую секунду. Но как это сделать?</p>
+			<p> Мы поставим таймер, который будет срабатывать каждую секунду.</p>
+			<p> За это отвечает функция setInterval(funtion, deley)</p>
+			<p> В параметрах она принимает два значения: функцию, которую нужно вызвать и задержку(в мс).</p>
+			<pre>
+				<code class = "javascript">setInterval(time, 1000);</code>
+			</pre>
+			<h2>Что почитать?</h2>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function" target = "_blank">function()</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target = "_blank">Math.round()</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML" target = "_blank">innerHTML</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Date" target = "_blank">Date</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target = "_blank">toUpperCase()</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/de/docs/Web/API/WindowTimers/setInterval" target = "_blank">setInterval()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></p>
+		</div>
+		<a href = "../../../index.html" class = "home test">Home</a>
+		<footer>
+			<span id = "copyright">&copy; Hugant 2016</span>
+			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+		</footer>
+	</body>
+</html>

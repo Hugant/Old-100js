@@ -1,0 +1,122 @@
+*
+{
+	padding: 0;
+	margin: 0;
+	outline: none;
+}
+
+html
+{
+	background-color: #221F20;
+	background-image: url(../Images/dark-canvas.png);	
+}
+
+#title
+{
+	text-align: center;
+	color: azure;
+	font-size: 60px;
+	font-weight: 100;
+	font-family: Helvetica, sans-serif;
+	margin: 20px 0 30px 0;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	cursor: default;
+}
+
+#list
+{
+	width: 800px;
+	margin: 0 auto;
+	background: #383535;
+	color: lightgrey;
+	font-size: 15px;
+	padding: 20px;
+	border-radius: 5px;
+	font-family: "Open Sans Light";
+}
+
+h2
+{
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	cursor: default;
+}
+
+p
+{
+	font-size: 20px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	cursor: default;
+}
+
+p a
+{
+	color: #8DE3E9;
+	text-decoration: none;
+}
+
+p a:active
+{
+	color: red;
+}
+
+p a:hover
+{
+	color: #7DC4C9;
+}
+
+ul
+{
+	font-size: 17px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	cursor: default;
+}
+
+ul li
+{
+	margin-left: 30px;
+}
+
+pre h2
+{
+	margin-bottom: -20px;
+}
+
+pre .jsT
+{
+	color: #F05426;
+}
+
+pre .htmlT
+{
+	color: #4465E7;
+}
+
+pre .cssT
+{
+	color: #5CB98B;
+}
+
+.home
+{
+	right: 50px;
+	top: 20px;
+}
+
+.home:hover
+{
+    border-color: darkgrey;
+	cursor: pointer;
+}
+
+.home:active
+{
+	background: darkgrey;
+}

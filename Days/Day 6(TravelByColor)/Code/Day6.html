@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Traval by color</title>
+        <meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "../../../Fonts/fonts.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/homeButton.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/scrollbar.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/footer.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/list.css">
+		<link rel = "stylesheet" href = "../../../Highlight/styles/zenburn.css">
+		<script src="../../../Highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<h1 id = "title">Travel by color</h1>
+		<div id = "list">
+			<h2>Устроим настоящее путешествие от цвета к цвету!</h2>
+			<br>
+			<p>В html нам нужно создать два input поля, цвет от которого будем начинать путешествие и цвет до которого будем путешествовать, и кнопку.</p>
+			<pre>
+				<h2 class = "htmlT">html:</h2>
+				<code class = "html">&lt;h1>First value&lt;/h1>
+&lt;input id = "input1" type = "text" placeholder = "#000000" onchange = "CheckInput(1)">&lt;!-- начальный цвет -->
+
+&lt;h1>Second value&lt;/h1>
+&lt;input id = "input2" type = "text" placeholder = "#FFFFFF" onchange = "CheckInput(2)">&lt;!-- конечный цвет -->
+
+&lt;input id = "input3" type = "button" value = "Travel" onclick = "TravelByColor()"></code>
+			</pre>
+			<p>Не забываем про CSS</p>
+			<pre>
+				<h2 class = "cssT">CSS:</h2>
+				<code class = "css">body
+{
+    background-color: white;
+    transition-duration: 2s;/* для плавного перехода */
+}</code>
+			</pre>
+			<h2>Теперь мы можем писать скрипт</h2>
+			<br>
+			<p>Это получение значения из input поля.</p>
+			<pre>
+				<code class = "javascript">document.getElementById("id").value</code>
+			</pre>
+			<p>Метод substr(start, end) возвращает обрезанную строку начиная с позиции start и заканчивая позицией end.</p>
+			<pre>
+				<code class = "javascript">string.substr(2, 3)</code>
+			</pre>
+			<p>Метод parseInt() возвращает целое число из строки string в системе счисления radix.</p>
+			<pre>
+				<code class = "javascript">parseInt(string, radix)</code>
+			</pre>
+			<p>Метод string.toUpperCase() переводит строку string в заглавные буквы.</p>
+			<br>
+			<p> Метод [число].toString([radix]) возвращает строковое представление числа.</p>
+			<p> Где radix это число между 2 и 36, определяющее основание системы счисления в которой нужно представить число(Это необязательный параметр).</p>
+			<br>
+			<p> Давайте напишим функцию, которая будет подготавливать наши RGB цвета.</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code>var RedF;
+var GreenF;
+var BlueF;
+var RedS;
+var GreenS;
+var BlueS;
+var FirstColor;
+var SecondColor;
+
+function TravelByColor() {
+    FirstColor = document.getElementById("input1").value.toUpperCase();// Получаем значение из input'ов и переводим в заглавные буквы
+    SecondColor = document.getElementById("input2").value.toUpperCase();
+    
+    FirstColor = FirstColor.substr(1,6);// Если вы вводите цвета без решетки(#FFFFFF, а FFFFFF), тогда это не нужно. 
+    SecondColor = SecondColor.substr(1,6);// Если вы вводите цвета без решетки(#FFFFFF, а FFFFFF), тогда это не нужно. 
+    
+    RedF = FirstColor.substr(0,2);// Получаем Red
+    GreenF = FirstColor.substr(2,2);// Получаем Green
+    BlueF = FirstColor.substr(4,2);// Получаем Blue
+    
+    RedS = SecondColor.substr(0,2);
+    GreenS = SecondColor.substr(2,2);
+    BlueS = SecondColor.substr(4,2);
+    
+    FirstColor = parseInt(FirstColor, 16);// Переводим в 16 систему счисления
+    SecondColor = parseInt(SecondColor, 16);
+    
+    RedF = parseInt(RedF,16);// Переводим в 16 систему счисления
+    GreenF = parseInt(GreenF,16);
+    BlueF = parseInt(BlueF,16);	
+    
+    RedS = parseInt(RedS,16);
+    GreenS = parseInt(GreenS,16);
+    BlueS = parseInt(BlueS,16);
+
+    GoToColor(RedF, GreenF, BlueF, RedS, GreenS, BlueS, FirstColor, SecondColor);// Продолжение
+}</code>
+			</pre>
+			<p>Теперь напишим функцию, которая будет совершать путешествие от цвета к цвету.</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code>function GoToColor(redF, greenF, blueF, redS, greenS, blueS, firstValue, secondValue) {
+    if(firstValue == secondValue) {        // если равные, тогда просто присваеваем это цвет фону
+    	firstValue = firstValue.toString(16);
+    	document.getElementById("body").style.background = "#" + firstValue;
+    } else {
+        var intervalID3 = setInterval( function() { // переход по Red
+            if(redF < redS)// узнаем, что нам нужно сделать прибавлять или отнимать
+                redF++;
+            else if(redF > redS)
+                redF--;
+            else
+                clearInterval(intervalID3);// как только они стали равными, выходим из интервала
+            	
+            redF = convert(redF).toString(16);// переводим в строки
+            greenF = greenF.toString(16);
+            blueF = blueF.toString(16);
+            
+            document.getElementById("body").style.background = "#" + redF + greenF + blueF;// меняем фон
+            
+            redF = parseInt(redF, 16);// переводим обратно в hex, для того чтобы могли производить арефметические операции
+            greenF = parseInt(greenF, 16);
+            blueF = parseInt(blueF, 16);
+        }, 200);
+		
+		// так же и с Green и Blue
+        
+        var intervalID2 = setInterval( function() {
+            if(greenF < greenS)
+            	greenF++;
+            else if(greenF > greenS)
+            	greenF--;
+            else
+            	clearInterval(intervalID2);
+            	
+            redF = redF.toString(16);
+            greenF = convert(greenF).toString(16);
+            blueF = blueF.toString(16);
+            
+            document.getElementById("body").style.background = "#" + redF + greenF + blueF;
+            
+            redF = parseInt(redF, 16);
+            greenF = parseInt(greenF, 16);
+            blueF = parseInt(blueF, 16);
+        }, 200);
+        
+        var intervalID1 = setInterval(function() {
+            if(blueF < blueS)
+            	blueF++;
+            else if(blueF > blueS)
+            	blueF--;
+            else
+            	clearInterval(intervalID1);
+            	
+            redF = redF.toString(16);
+            greenF = greenF.toString(16);
+            blueF = convert(blueF).toString(16);
+            
+            document.getElementById("body").style.background = "#" + redF + greenF + blueF;
+            
+            redF = parseInt(redF, 16);
+            greenF = parseInt(greenF, 16);
+            blueF = parseInt(blueF, 16);
+        }, 200);
+    }
+}</code>
+			</pre>
+			<p>Вас наверное заинтересовала функция convert().</p>
+			<pre>
+				<code class = "javascript">function convert(number)
+{
+    if(number.length < 2)
+    	return "0" + number;
+    else
+    	return number;
+}</code>
+			</pre>
+			<p>Мы уже ее писали, она просто перводит число в строку с добовление нуля перед ним.(9 - 09, 7 - 07, D - 0D)</p>
+			<br>
+			<h2>Что почитать?</h2>
+			<p class = "link"><a href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target = "_blank">toUpperCase()</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/de/docs/Web/API/WindowTimers/setInterval" target = "_blank">setInterval()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target = "_blank">parseInt()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/substr" target = "_blank">substr()</a></p>
+		</div>
+		<a href = "../../../index.html" class = "home test">Home</a>
+		<footer>
+			<span id = "copyright">&copy; Hugant 2016</span>
+			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+		</footer>
+	</body>
+</html>

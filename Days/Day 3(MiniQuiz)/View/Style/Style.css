@@ -1,0 +1,100 @@
+body
+{
+    background-color: white;
+}
+
+.home
+{
+	position: absolute;
+	right: 2%;
+	top: 2%;
+	width: 100px;
+	height: 25px;
+	color: white;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+	text-decoration: none;
+	background: lightgrey;
+}
+
+.home:hover
+{
+    border-color: black;
+	cursor: pointer;
+}
+
+.home:active
+{
+	background: black;
+}
+
+hr
+{
+    background-color:aquamarine;
+    height: 10px;
+    border-width: 0;
+    margin-bottom: 30px;
+}
+
+.center
+{
+    width: 800px;
+    margin: 10px auto;
+}
+
+.center2
+{
+    width: 325px;
+    margin: 0 auto;
+}
+
+input
+{
+    color: white;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    width: 300px;
+    background: #b3b3b3;
+    display: block;
+}
+
+input:active
+{
+    border-color: black;
+}
+
+input:hover
+{
+    border-color: black;
+}
+
+.Question
+{
+    display: block;
+    text-align: center;
+    border: 1px solid black;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+.Block
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -100px;
+    width: 100px;
+    height: 100px;
+    background: yellow;
+    transition-duration: 1s;
+}

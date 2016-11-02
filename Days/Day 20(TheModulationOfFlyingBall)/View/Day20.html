@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+		<title>The modulation of flying ball</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "Style/Style.css">
+    </head>
+    <body id = "body">
+		<h1>The modulation of flying ball</h1>
+		<canvas id = "canvas" width = "500" height = "300"></canvas>
+		<p id = "buttons">
+			<input id = "start" type = "button" value = "start" onclick = "">
+			<input id = "clear" type = "button" value = "clear" onclick = "clear()">
+		</p>
+		
+		<h2>Settings:</h2>
+		<p class = "settings">
+			<span>v(m/c) = </span><input id = "v" type = "input" placeholder = "20" value = "20">
+			<span>m(kg) = </span><input id = "m" type = "input" placeholder = "0.150" value = "0.150">
+			<span>g(m/c<sup>2</sup>) = </span><input id = "g" type = "input" placeholder = "9.8" value = "9.8">
+			<span>r(m) = </span><input id = "r" type = "input" placeholder = "0.033" value = "0.033">
+		</p>
+		
+		<p class = "settings">
+			<span>h(m) = </span><input id = "h" type = "input" placeholder = "0" value = "0">
+			<span>h<sub>max</sub>(m) = </span><input id = "hmax" type = "input" placeholder = "0" value = "0">
+			<span>delay(ms) = </span><input id = "delay" type = "input" placeholder = "0" value = "0">
+		</p>
+		
+		<p class = "settings">
+			<span>p(Density of the medium)(kg/m<sup>3</sup>) = </span><input id = "p" type = "input" placeholder = "1.23" value = "1.23">
+		</p>
+		
+		<p class = "settings">
+			<span>C(Coefficient of aerodynamics) = </span><input id = "C" type = "input" placeholder = "0.4" value = "0.4">
+		</p>
+		
+		<p class = "settings">
+			<span>k(Scale factor) = </span><input id = "k" type = "input" placeholder = "10" value = "10">
+		</p>
+		
+		<script src = "JavaScript/script.js"></script>
+		<a href = "../../../index.html" class = "home">Home</a>
+    </body>
+	<script src = "../../YandexMetrika.js"></script>
+</html>
+
+

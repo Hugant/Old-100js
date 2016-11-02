@@ -1,0 +1,299 @@
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Roguelike game</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "Style/Style.css">
+		<script src = "JavaScript/keysEvent.js"></script>
+	</head>
+	<body>
+		<div id = "title">
+			<p> Roguelike game</p>
+		</div>
+
+		<div id = "menu">
+			<a class = "gameButtons" onclick = "out.vision('menu', 'off', 'playMenu', 'on')">Play</a>
+			<a class = "gameButtons" onclick = "out.vision('menu', 'off', 'tutorial', 'on')">Tutorial</a>
+		</div>
+
+		<div id = "playMenu">
+			<a class = "gameButtons" onclick = "out.vision('playMenu', 'off', 'levels', 'on')">Level game</a>
+			<a class = "gameButtons" onclick = "out.vision('playMenu', 'off', 'gameLook', 'on'); randomGame()">Random game</a>
+			<a class = "gameButtons" onclick = "out.vision('playMenu', 'off', 'menu', 'on')">Back</a>
+		</div>
+
+		<div id = "levels">
+			<h1 class = "titleMenu">Levels</h1>
+
+			<a class = "levels" id = "lvl1" onclick = "activeLevel = 1; levelGame();">1</a>
+			<a class = "levels" id = "lvl2" onclick = "activeLevel = 2; levelGame();">2</a>
+			<a class = "levels" id = "lvl3" onclick = "activeLevel = 3; levelGame();">3</a>
+			<a class = "levels" id = "lvl4" onclick = "activeLevel = 4; levelGame();">4</a>
+			<a class = "levels" id = "lvl5" onclick = "activeLevel = 5; levelGame();">5</a>
+			<a class = "levels" id = "lvl6" onclick = "activeLevel = 6; levelGame();">6</a>
+			<a class = "levels" id = "lvl7" onclick = "activeLevel = 7; levelGame();">7</a>
+			<a class = "levels" id = "lvl8" onclick = "activeLevel = 8; levelGame();">8</a>
+			<a class = "levels" id = "lvl9" onclick = "activeLevel = 9; levelGame();">9</a>
+			<a class = "levels" id = "lvl10" onclick = "activeLevel = 10; levelGame();">10</a>
+			<a class = "levels" id = "lvl11" onclick = "activeLevel = 11; levelGame();">11</a>
+			<a class = "levels" id = "lvl12" onclick = "activeLevel = 12; levelGame();">12</a>
+			<a class = "levels" id = "lvl13" onclick = "activeLevel = 13; levelGame();">13</a>
+			<a class = "levels" id = "lvl14" onclick = "activeLevel = 14; levelGame();">14</a>
+			<a class = "levels" id = "lvl15" onclick = "endGame();">15</a>
+
+			<a class = "gameButtons" onclick = "out.vision('levels', 'off', 'playMenu', 'on')">Back</a>
+		</div>
+
+		<div id = "tutorial">
+			<a class = "gameButtons" onclick = "out.vision('tutorial', 'off', 'Basics', 'on')">Basics</a>
+			<a class = "gameButtons" onclick = "out.vision('tutorial', 'off', 'Control', 'on')">Control</a>
+			<a class = "gameButtons" onclick = "out.vision('tutorial', 'off', 'Characters', 'on')">Characters</a>
+			<a class = "gameButtons" onclick = "out.vision('tutorial', 'off', 'menu', 'on');">Back</a>
+		</div>
+
+		<div id = "Basics">
+			<h1 class = "titleMenu">Your task</h1>
+			<p class = "mvBoli"> Your task is to reach the gate in the right side</p>
+			<div>
+				<img src = "Images/hero.png">
+				<img src = "Images/arrow.png">
+				<img src = "Images/door.png">
+			</div>
+
+			<h1 class = "titleMenu">Map</h1>
+			<table>
+				<tr>
+					<td>View</td>
+					<td>Moving</td>
+					<td>Effect</td>
+				</tr>
+				<tr>
+					<td><img src = "Images/grass1.jpg"> <div>or</div> <img src = "Images/grass2.jpg"></td>
+					<td>Yes</td>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td><img src = "Images/tree1.jpg"> <div>or</div> <img src = "Images/tree2.jpg"></td>
+					<td>No</td>
+					<td>None</td>
+				</tr>
+				<tr>
+					<td><img src = "Images/water1.jpg"> <div>or</div> <img src = "Images/water2.jpg"></td>
+					<td>Yes</td>
+					<td>-1 damage</td>
+				</tr>
+				<tr>
+					<td><img src = "Images/earth.jpg"></td>
+					<td>Yes</td>
+					<td>50% evasion</td>
+				</tr>
+			</table>
+
+			<h1 class = "titleMenu">Enemies</h1>
+			<p class = "mvBoli">On the map there are a certain number of enemies that will hinder you to get to the gate</p>
+			<p class = "mvBoli">Each enemy has its own characteristics(damage, hp, vampirism)</p>
+			<p class = "mvBoli">They can kill you!!!</p>
+
+			<h1 class = "titleMenu">Moving</h1>
+			<p class = "mvBoli">To move the hero press one of the control keys</p>
+
+			<h1 class = "titleMenu">Attack</h1>
+			<p class = "mvBoli">To kill the enemy you just need for him to go!</p>
+			<img src = "Images/example1.png">
+			<p class = "mvBoli">Press the right arrow to kill the enemy</p>
+
+			<h1 class = "titleMenu">Unusual chests</h1>
+			<p class = "mvBoli">If you killed a chest you can drop:</p>
+			<ul>
+				<li> 0 - 2 hillpoint</li>
+				<li> 0 - 2 damage</li>
+				<li> 0 - 1 vampirism</li>
+			</ul>
+
+			<h1 class = "titleMenu">Vampires</h1>
+			<p class = "mvBoli">If you kill a vampire, you will get 1 to vampirism!</p>
+
+			<h1 class = "titleMenu">Random game</h1>
+			<p class = "mvBoli"> If you start a Random game, then the map and characters will be generated randomly</p>
+
+			<h1 class = "titleMenu">Level game</h1>
+			<p class = "mvBoli"> If you start a Level game, then each level has its own map and characters</p>
+
+			<h1 class = "titleMenu">Good luck!</h1>
+
+
+			<a class = "gameButtons" onclick = "out.vision('Basics', 'off', 'tutorial', 'on')">Back</a>
+		</div>
+
+		<div id = "Control">
+			<div id = "centerControl">
+				<h1 class = "titleMenu">Control</h1>
+				<p class = "mvBoli">Use the arrow on the keyboard to control</p>
+				<img src = "Images/arrowsOnKeyboard.png">
+				<a class = "gameButtons" onclick = "out.vision('Control', 'off', 'tutorial', 'on')">Back</a>
+			</div>
+		</div>
+
+		<div id = "Characters">
+			<h1 class = "titleMenu">Characters</h1>
+			<table>
+				<tr>
+					<td>View</td>
+					<td>Name</td>
+					<td><img src = "Images/heart.png"></td>
+					<td><img src = "Images/sword.png"></td>
+					<td><img src = "Images/heartV.png"></td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/goblin1.png"></td>
+					<td>Goblin</td>
+					<td>1</td>
+					<td>1 - 2</td>
+					<td>0</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/goblin2.png"></td>
+					<td>Goblin Captain</td>
+					<td>2</td>
+					<td>2 - 3</td>
+					<td>0</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/goblin3.png"></td>
+					<td>Goblin Shaman</td>
+					<td>3</td>
+					<td>3 - 4</td>
+					<td>0</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/goblin4.png"></td>
+					<td>Goblin King</td>
+					<td>5</td>
+					<td>5 - 6</td>
+					<td>0</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/skeleton.png"></td>
+					<td>Skeleton</td>
+					<td>10</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/vampir.png"></td>
+					<td>Vampir</td>
+					<td>3</td>
+					<td>2 - 1</td>
+					<td>1</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/hero.png"></td>
+					<td>Player</td>
+					<td>10</td>
+					<td>1</td>
+					<td>0</td>
+				</tr>
+
+				<tr>
+					<td><img src = "Images/chest.png"></td>
+					<td>Chest</td>
+					<td>0 - 2</td>
+					<td>0 - 2</td>
+					<td>0 - 1</td>
+				</tr>
+			</table>
+			<a class = "gameButtons" onclick = "out.vision('Characters', 'off', 'tutorial', 'on')">Back</a>
+		</div>
+
+		<div id = "endGame">
+			<p class = "mvBoli">Enter password:</p> 
+			<input id = "password" type = "text" placeholder = "password">
+			<input id = "submit" type = "button" value = "Enter" onclick = "checkPassword(document.getElementById('password').value)">
+			<p class = "mvBoli">to complite the game</p> 
+			<p class = "mvBoli">(if you passed all levels, then you know the password)</p>
+		</div>
+		
+		<div id = "youWin">
+			<h1 class = "titleMenu"> You WIN!!!</h1>
+			<img src = "Images/danceMan.gif">
+			<a class = "gameButtons" onclick = "out.vision('youWin', 'off', 'menu', 'on')">Back</a>
+		</div>
+		
+		<div id = "gameLook">
+			<h1 id = "viewLevel" class = "titleMenu">Level 1</h1>
+			<div id = "center">
+				<canvas id = "game"></canvas>
+				<div id = "stats">
+					<h1>Your stats</h1>
+					<div>
+						<img src = "Images/heart.png">
+						<p id = "hillpoint"></p>
+					</div>
+
+					<div>
+						<img src = "Images/sword.png">
+						<p id = "damage"></p>
+					</div>
+
+					<div>
+						<img src = "Images/heartV.png">
+						<p id = "vampirism"></p>
+					</div>
+				</div>
+				<div id = "enemy_stats">
+					<h1 id = "enemy_name">??????</h1>
+					<div>
+						<img src = "Images/heart.png">
+						<p id = "enemy_hillpoint">??</p>
+					</div>
+
+					<div>
+						<img src = "Images/sword.png">
+						<p id = "enemy_damage">??</p>
+					</div>
+
+					<div>
+						<img src = "Images/heartV.png">
+						<p id = "enemy_vampirism">??</p>
+					</div>
+				</div>
+			</div>
+
+			<div id = "cImage">
+				<img src = "Images/grass1.jpg" id = "grass1I">
+				<img src = "Images/grass2.jpg" id = "grass2I">
+				<img src = "Images/earth.jpg" id = "earthI">
+				<img src = "Images/tree1.jpg" id = "tree1I">
+				<img src = "Images/tree2.jpg" id = "tree2I">
+				<img src = "Images/door.png" id = "doorI">
+				<img src = "Images/chest.png" id = "chestI">
+				<img src = "Images/skeleton.png" id = "skeletonI">
+				<img src = "Images/vampir.png" id = "vampirI">
+				<img src = "Images/goblin1.png" id = "goblin1I">
+				<img src = "Images/goblin2.png" id = "goblin2I">
+				<img src = "Images/goblin3.png" id = "goblin3I">
+				<img src = "Images/goblin4.png" id = "goblin4I">
+				<img src = "Images/water1.jpg" id = "water1I">
+				<img src = "Images/water2.jpg" id = "water2I">
+				<img src = "Images/hero.png" id = "heroI">
+				<img src = "Images/space.png" id = "spaceI">
+			</div>
+			<script src = "JavaScript/level.js"></script>
+			<script src = "JavaScript/map.js"></script>
+			<script src = "JavaScript/game.js"></script>
+			<script src = "JavaScript/out.js"></script>
+			<script src = "JavaScript/create.js"></script>
+			<a id = "backToMenu" onclick = "if(!acted){ deleteWorld();out.vision('gameLook', 'off', 'playMenu', 'on')}else {this.innerHTML = 'Wait...'};">Back</a>
+			<a id = "Refresh" onclick = "replay();">Refresh</a>
+		</div>
+		<a href = "../../../index.html" class = "home">Home</a>
+	</body>
+	<script src = "../../YandexMetrika.js"></script>
+</html>

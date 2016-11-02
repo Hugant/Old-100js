@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Russian Roulette</title>
+        <meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "../../../Fonts/fonts.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/homeButton.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/scrollbar.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/footer.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/list.css">
+		<link rel = "stylesheet" href = "../../../Highlight/styles/zenburn.css">
+		<script src="../../../Highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<h1 id = "title">Russian Roulette</h1>
+		<div id = "list">
+			<h2>Проверишь свою удачу?</h2>
+			<br>
+			<p>Написать русскую рулетку достаточно просто, вся проблема заключается в поиске определенных файлов(звуки, картинки).</p>
+			<br>
+			<p>Как обычно html.</p>
+			<pre>
+				<h2 class = "htmlT">html:</h2>
+				<code class = "html">&lt;img id = "gun" src = "Images/gun.jpg" onclick = "bang()">
+&lt;img id = "bangImg" src = "Images/bang.png" onclick = "bang();"></code>
+			</pre>
+			<p>Прячем картинку BANG.</p>
+			<pre>
+				<h2 class = "cssT">CSS:</h2>
+				<code class = "css">#banImg 
+{
+    display: none;
+    /* ваши стили */
+}</code>
+			</pre>
+			<h2>Перейдем к скрипту</h2>
+			<p> Метод Math.random() возвращает от 0(включительно) до 1.</p>
+			<p> Метод Math.round() возвращает число, округленное к ближайшему целому.</p>
+			<br>
+			<br>
+			<p> Создает новый элемент с типом Audio, с указанием url звукового файла в параметрах.</p>
+			<p> Метод a.play() воспроизводит звуковой файл.</p>
+			<pre>
+				<code>new Audio(url)</code>
+			</pre>
+			<p> У элемента Audio нет метода остановки звука, но есть метод pause(), который приостанавливает воспроизведение.</p>
+			<p> И метод currentTime, который отвечает за текущее время воспроизведения звукового файла.</p>
+			<p> Пользуясь этими методами, я написал функцию остановки воспроизведения звукового файла.</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code>var count = 0;// счетчик
+var shot = new Audio("JavaScript/sound/shot.mp3");// загружаем звуки
+var notShot = new Audio("JavaScript/sound/notShot.mp3");
+
+var bang = function() {
+    if(!count) { // если не было выстрела перед нажатием 
+        var random = Math.round(Math.random() * 6 + 1);// рандомим число от 1 до 6
+        if(random == 1) {
+            count = 1;//был высрел
+            shot.stop();// остоновка воспроизведение звукового файла
+            shot.play();// воспроизведение
+            document.getElementById("bangImg").style.display = "block";// показываем картинку BANG
+        	
+        } else {
+            notShot.stop();// остоновка воспроизведение звукового файла
+            notShot.play();// воспроизведение
+        }
+    } else {
+        count = 0;// не было выстрела
+        document.getElementById("bangImg").style.display = "none";// прячем картинку BANG
+    }
+}
+
+HTMLAudioElement.prototype.stop = function() {
+    this.pause();
+    this.currentTime = 0.0;
+}</code>
+			</pre>
+			<h2>Что почитать?</h2>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/API/Document/getElementById" target="_blank">document.getElementById()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank">Math.round()</a></p>
+			<p class = "link"><a href = "https://developer.mozilla.org/ru/docs/Web/API/HTMLAudioElement" target = "_blank">Audio</a></p>
+		</div>
+		<a href = "../../../index.html" class = "home test">Home</a>
+		<footer>
+			<span id = "copyright">&copy; Hugant 2016</span>
+			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+		</footer>
+	</body>
+</html>

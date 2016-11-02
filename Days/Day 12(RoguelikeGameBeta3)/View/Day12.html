@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Roguelike game(beta 3.0)</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "Style/Style.css">
+		<script src = "JavaScript/keysEvent.js"></script>
+	</head>
+	<body>
+		<div id = "title">
+			<p> Roguelike game(Beta 3.0)</p>
+		</div>
+		<div id = "center">
+			<canvas id = "game"></canvas>
+			<div id = "stats">
+				<h1>Your stats</h1>
+				<div>
+					<img src = "Images/heart.png">
+					<p id = "hillpoint"></p>
+				</div>
+				<div>
+					<img src = "Images/sword.png">
+					<p id = "damage"></p>
+				</div>
+				<div>
+					<img src = "Images/heartV.png">
+					<p id = "vampirism"></p>
+				</div>
+			</div>
+			<div id = "enemy_stats">
+				<h1 id = "enemy_name">??????</h1>
+				<div>
+					<img src = "Images/heart.png">
+					<p id = "enemy_hillpoint">??</p>
+				</div>
+				<div>
+					<img src = "Images/sword.png">
+					<p id = "enemy_damage">??</p>
+				</div>
+				<div>
+					<img src = "Images/heartV.png">
+					<p id = "enemy_vampirism">??</p>
+				</div>
+			</div>
+		</div>
+		<div id = "cImage">
+			<img src = "Images/grass1.jpg" id = "grass1I">
+			<img src = "Images/grass2.jpg" id = "grass2I">
+			<img src = "Images/earth.jpg" id = "earthI">
+			<img src = "Images/tree1.jpg" id = "tree1I">
+			<img src = "Images/tree2.jpg" id = "tree2I">
+			<img src = "Images/door.png" id = "doorI">
+			<img src = "Images/chest.png" id = "chestI">
+			<img src = "Images/skeleton.png" id = "skeletonI">
+			<img src = "Images/vampir.png" id = "vampirI">
+			<img src = "Images/goblin1.png" id = "goblin1I">
+			<img src = "Images/goblin2.png" id = "goblin2I">
+			<img src = "Images/goblin3.png" id = "goblin3I">
+			<img src = "Images/goblin4.png" id = "goblin4I">
+			<img src = "Images/water1.jpg" id = "water1I">
+			<img src = "Images/water2.jpg" id = "water2I">
+			<img src = "Images/hero.png" id = "heroI">
+			<img src = "Images/space.png" id = "spaceI">
+		</div>
+		<script src = "JavaScript/map.js"></script>
+		<script src = "JavaScript/game.js"></script>
+		<div id = "info">
+			<p>Red heart is your hillpoints</p>
+			<p>Sword is your damage</p>
+			<p>Green heart is your vampirism</p>
+			<p>Your task is to reach the gate in the right side</p>
+			<p>Use the arrow on the keyboard to control</p>
+			<p>Enemies have different characteristics(hp, damage, vampirism)</p>
+		</div>
+		<img id = "fun" src = "Images/ThisIsBeginning.png">
+		<a class = "home" id = "shit" onclick = "funA()">Do you think this game is shit???</a>
+		<a class = "home" id = "hide_show" onclick = "hideShowInfo()">Hide info</a>
+		<a href = "../../../index.html" class = "home">Home</a>
+	</body>
+	<script src = "../../YandexMetrika.js"></script>
+</html>

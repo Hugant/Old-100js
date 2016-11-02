@@ -1,0 +1,17 @@
+.home
+{
+	position: fixed;
+	width: 100px;
+	height: 25px;
+	color: white;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+	text-decoration: none;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+

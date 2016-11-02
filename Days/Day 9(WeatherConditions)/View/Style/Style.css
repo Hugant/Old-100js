@@ -1,0 +1,81 @@
+body
+{
+	background: rgba(0, 154, 205, 1);
+;
+}
+
+canvas
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.8;
+}
+
+#bottons
+{
+	position: absolute;
+	width: 300px;
+	left: 50%;
+	bottom: 3%;
+	margin-left: -150px;
+}
+
+.button
+{
+	width: 100px;
+	height: 25px;
+	color: white;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+	text-decoration: none;
+	background: inherit;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.button:hover
+{
+    border-color: red;
+	cursor: pointer;
+}
+
+.button:active
+{
+	background: black;
+}
+
+.home
+{
+	position: absolute;
+	right: 2%;
+	bottom: 2%;
+	width: 100px;
+	height: 25px;
+	color: white;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+	text-decoration: none;
+	background: inherit;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.home:hover
+{
+    border-color: red;
+	cursor: pointer;
+}
+
+.home:active
+{
+	background: black;
+}

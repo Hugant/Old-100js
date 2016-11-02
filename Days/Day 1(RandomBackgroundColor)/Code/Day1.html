@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Random background color</title>
+        <meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "../../../Fonts/fonts.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/homeButton.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/scrollbar.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/footer.css">
+		<link rel = "stylesheet" href = "../../../CommonStyles/list.css">
+		<link rel = "stylesheet" href = "../../../Highlight/styles/zenburn.css">
+		<script src="../../../Highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</head>
+	<body>
+		<h1 id = "title">Random background color</h1>
+		<div id = "list">
+			<h2> Создание скрипта, который меняет цвет фона очень прост, и реализовать его сможет даже школьник!</h2>
+			<br>
+			<p> Для начала, вам нужно создать кнопки, которые выполняют функции смена фона.</p>
+			<pre>
+				<h2 class = "htmlT">html:</h2>
+				<code class = "html">&lt;input id = "RedButton"    type = "button" value = "Red"    onclick = "redColor()">
+&lt;input id = "YellowButton" type = "button" value = "Yellow" onclick = "yellowColor()">
+&lt;input id = "BlueButton"   type = "button" value = "Blue"   onclick = "blueColor()">
+&lt;input id = "PinkButton"   type = "button" value = "Pink"   onclick = "pinkColor()">
+&lt;input id = "RandButton"   type = "button" value = "Random" onclick = "randColor()">
+&lt;input id = "AquaButton"   type = "button" value = "Aqua"   onclick = "aquaColor()">
+&lt;input id = "OrangeButton" type = "button" value = "Orange" onclick = "orangeColor()">
+&lt;input id = "GreenButton"  type = "button" value = "Green"  onclick = "greenColor()">
+&lt;input id = "BrownButton"  type = "button" value = "Brown"  onclick = "brownColor()"></code>
+			</pre>
+			<p> Главное не забыть присвоить тегу &lt;body> идентификатор id = "body".</p>
+			<br>
+			<p> После вы должны создать функции, которые будут влиять на цвет фона.</p>
+			<br>
+			<p> С помощью следующего метода вы получаете доступ к элементу по идентификатору:
+			<pre>
+				<code class = "javascript">document.getElementById("идентификатор")</code>
+			</pre>
+			<p> С помощью следующего метода вы получаете доступ к стилям элемента:</p>
+			<pre>
+				<code class = "javascript">document.getElementById("идентификатор").style</code>
+			</pre>
+			<p> Получение доступа к определенному стилю:</p>
+			<pre>
+				<code class = "javascript">document.getElementById("идентификатор").style.background = "blue";// фон
+document.getElementById("идентификатор").style.color = "red";// цвет текста
+document.getElementById("идентификатор").style.fontSize "24px";// размер текста</code>
+			</pre>
+			<p> Полный список свойств вы можете увидеть <a href = "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference" target="_blank">здесь</a></p> 
+			<p> Здесь есть несколько особенностей: </p>
+			<ul>
+				<li> Значение, которое вы присваеваете должно быть строкой = "red"</li>
+				<li> Если свойство имеет единицу измерения px, em и т.д, тогда они должны быть приписаны в конце числа без пробела = "24px", "24em"</li>
+			</ul>
+			<br>
+			<br>
+			<h2>Перейдем к скрипту</h2>
+			<br>
+			<p> Функции, которые изменяют цвет фона на опеределенный цвет, очень просты.</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code class = "javascript">function redColor() {
+    document.getElementById("body").style.background = "red";
+}
+
+function yellowColor() {
+    document.getElementById("body").style.background = "yellow";
+}
+
+function blueColor() {
+    document.getElementById("body").style.background = "blue";
+}
+
+function pinkColor() {
+    document.getElementById("body").style.background = "pink";
+}
+
+function aquaColor() {
+    document.getElementById("body").style.background = "aqua";
+}
+
+function orangeColor() {
+    document.getElementById("body").style.background = "orange";
+}
+
+function greenColor() {
+    document.getElementById("body").style.background = "green";
+}
+
+function brownColor() {
+    document.getElementById("body").style.background = "brown";
+}</code>
+			</pre>
+			<p> Ситуация меняется при создание кнопки, которая задает случайный цвет фона.</p>
+			<br>
+			<p> Метод Math.random() возвращает от 0(включительно) до 1.</p>
+			<p> Метод Math.round() возвращает число, округленное к ближайшему целому.</p>
+			<br>
+			<p> Метод [число].toString([radix]) возвращает строковое представление числа</p>
+			<p> Где radix это число между 2 и 36, определяющее основание системы счисления в которой нужно представить число(Это необязательный параметр).</p>
+			<br>
+			
+			<p> Так как решить эту задачу зная эти функции?</p>
+			<p> Изночально нужно задать случайные значение каждому из цветов RGB.</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code class = "javascript">function randColor() {
+    var color = Math.round(255*Math.random());// Случайное число от 0 до 255
+    var R = color.toString(16);// Перевод в 16 систему счисления от 00 до FF
+    color = Math.round(255*Math.random());
+    var G = color.toString(16);
+    color = Math.round(255*Math.random());
+    var B = color.toString(16);
+    color = R + G + B;// FFA2F3
+    document.getElementById("body").style.background = "#" + сolor;// #FFA2F3
+}</code>
+			</pre>
+			
+			<p> Или другой вариант</p>
+			<pre>
+				<h2 class = "jsT">JavaScript:</h2>
+				<code class = "javascript">function randColor() {
+    var color = Math.round(16777215*Math.random());// Случайное число от 0 до 16777215
+    color = color.toString(16);// Перевод в 16 систему счисления от 000000 до FFFFFF
+    document.getElementById("body").style.background = "#" + сolor;// #FFA2F3
+}</code>
+			</pre>
+			
+			<h2>Что почитать?</h2>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/API/Document/getElementById" target="_blank">document.getElementById()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank">Math.round()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function" target = "_blank">function()</a></p>
+		</div>
+		<a href = "../../../index.html" class = "home test">Home</a>
+		<footer>
+			<span id = "copyright">&copy; Hugant 2016</span>
+			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+		</footer>
+	</body>
+</html>

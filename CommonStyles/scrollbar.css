@@ -1,0 +1,40 @@
+html
+{
+	overflow: hidden;
+}
+
+body
+{
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 20px;
+    padding: 30px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+}
+
+::-webkit-scrollbar-track
+{
+	margin: 20px;
+	padding: 10px;
+	background: #4f4f4f;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background: #828282;
+}
+
+::-webkit-scrollbar:horizontal
+{
+	height: 10px;
+}

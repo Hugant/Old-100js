@@ -1,0 +1,252 @@
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Roguelike game(beta 5.0)</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "Style/Style.css">
+		<script src = "JavaScript/keysEvent.js"></script>
+	</head>
+	<body>
+		<div id = "title">
+			<p> Roguelike game(Beta 5.0)</p>
+		</div>
+		
+		<div id = "menu">
+			<div id = "centerFM">
+				<a class = "gameButtons" onclick = "game(); document.getElementById('gameLook').style.display = 'block'; document.getElementById('menu').style.display = 'none'; document.getElementById('shit').style.display = 'block';">Play</a>
+				<a class = "gameButtons" onclick = "document.getElementById('tutorial').style.display = 'block'; document.getElementById('menu').style.display = 'none';">Tutorial</a>
+			</div>
+		</div>
+		
+		<div id = "tutorial">
+			<div id = "centerSM">
+				<a class = "gameButtons" onclick = "document.getElementById('tutorial').style.display = 'none'; document.getElementById('Basics').style.display = 'block';">Basics</a>
+				<a class = "gameButtons" onclick = "document.getElementById('tutorial').style.display = 'none'; document.getElementById('Control').style.display = 'block';">Control</a>
+				<a class = "gameButtons" onclick = "document.getElementById('tutorial').style.display = 'none'; document.getElementById('Characters').style.display = 'block';">Characters</a>
+				<a class = "gameButtons" onclick = "document.getElementById('tutorial').style.display = 'none'; document.getElementById('menu').style.display = 'block';">Back</a>
+			</div>
+		</div>
+		
+		<div id = "Basics">
+			<div id = "centerBasics">
+				<h1 class = "titleMenu">Your task</h1>
+				<p class = "mvBoli"> Your task is to reach the gate in the right side</p>
+				<div>
+					<img src = "Images/hero.png">
+					<img src = "Images/arrow.png">
+					<img src = "Images/door.png">
+				</div>
+				
+				<h1 class = "titleMenu">Map</h1>
+				<table>
+					<tr>
+						<td>View</td>
+						<td>Moving</td>
+						<td>Effect</td>
+					</tr>
+					<tr>
+						<td><img src = "Images/grass1.jpg"> <div>or</div> <img src = "Images/grass2.jpg"></td>
+						<td>Yes</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td><img src = "Images/tree1.jpg"> <div>or</div> <img src = "Images/tree2.jpg"></td>
+						<td>No</td>
+						<td>None</td>
+					</tr>
+					<tr>
+						<td><img src = "Images/water1.jpg"> <div>or</div> <img src = "Images/water2.jpg"></td>
+						<td>Yes</td>
+						<td>-1 damage</td>
+					</tr>
+					<tr>
+						<td><img src = "Images/earth.jpg"></td>
+						<td>Yes</td>
+						<td>50% evasion</td>
+					</tr>
+				</table>
+				
+				<h1 class = "titleMenu">Enemies</h1>
+				<p class = "mvBoli">On the map there are a certain number of enemies that will hinder you to get to the gate</p>
+				<p class = "mvBoli">Each enemy has its own characteristics(damage, hp, vampirism)</p>
+				<p class = "mvBoli">They can kill you!!!</p>
+				
+				<h1 class = "titleMenu">Moving</h1>
+				<p class = "mvBoli">To move the hero press one of the control keys</p>
+				
+				<h1 class = "titleMenu">Attack</h1>
+				<p class = "mvBoli">To kill the enemy you just need for him to go!</p>
+				<img src = "Images/example1.png">
+				<p class = "mvBoli">Press the right arrow to kill the enemy</p>
+				<h1 class = "titleMenu">Unusual chests</h1>
+				<p class = "mvBoli">If you killed a chest you can drop:</p>
+				<ul>
+					<li> 0 - 2 hillpoint</li>
+					<li> 0 - 2 damage</li>
+					<li> 0 - 1 vampirism</li>
+				</ul>
+				
+				<h1 class = "titleMenu">Vampires</h1>
+				<p class = "mvBoli">If you kill a vampire, you will get 1 to vampirism!</p>
+				<h1 class = "titleMenu">Good luck!</h1>
+				<a class = "gameButtons" onclick = "document.getElementById('Basics').style.display = 'none'; document.getElementById('tutorial').style.display = 'block';">Back</a>
+			</div>
+		</div>
+		
+		<div id = "Control">
+			<div id = "centerControl">
+				<h1 class = "titleMenu">Control</h1>
+				<p class = "mvBoli">Use the arrow on the keyboard to control</p>
+				<img src = "Images/arrowsOnKeyboard.png">
+				<a class = "gameButtons" onclick = "document.getElementById('Control').style.display = 'none'; document.getElementById('tutorial').style.display = 'block';">Back</a>
+			</div>
+		</div>
+		
+		<div id = "Characters">
+			<div id = "centerCharacters">
+				<h1 class = "titleMenu">Characters</h1>
+				<table>
+					<tr>
+						<td>View</td>
+						<td>Name</td>
+						<td><img src = "Images/heart.png"></td>
+						<td><img src = "Images/sword.png"></td>
+						<td><img src = "Images/heartV.png"></td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/goblin1.png"></td>
+						<td>Goblin</td>
+						<td>1</td>
+						<td>1 - 2</td>
+						<td>0</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/goblin2.png"></td>
+						<td>Goblin Captain</td>
+						<td>2</td>
+						<td>2 - 3</td>
+						<td>0</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/goblin3.png"></td>
+						<td>Goblin Shaman</td>
+						<td>3</td>
+						<td>3 - 4</td>
+						<td>0</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/goblin4.png"></td>
+						<td>Goblin King</td>
+						<td>5</td>
+						<td>5 - 6</td>
+						<td>0</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/skeleton.png"></td>
+						<td>Skeleton</td>
+						<td>10</td>
+						<td>1</td>
+						<td>0</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/vampir.png"></td>
+						<td>Vampir</td>
+						<td>3</td>
+						<td>2 - 1</td>
+						<td>1</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/hero.png"></td>
+						<td>Player</td>
+						<td>10</td>
+						<td>1</td>
+						<td>0</td>
+					</tr>
+					
+					<tr>
+						<td><img src = "Images/chest.png"></td>
+						<td>Chest</td>
+						<td>0 - 2</td>
+						<td>0 - 2</td>
+						<td>0 - 1</td>
+					</tr>
+				</table>
+				<a class = "gameButtons" onclick = "document.getElementById('Characters').style.display = 'none'; document.getElementById('tutorial').style.display = 'block';">Back</a>
+			</div>
+		</div>
+		
+		<div id = "gameLook">
+			<div id = "center">
+				<canvas id = "game"></canvas>
+				<div id = "stats">
+					<h1>Your stats</h1>
+					<div>
+						<img src = "Images/heart.png">
+						<p id = "hillpoint"></p>
+					</div>
+					
+					<div>
+						<img src = "Images/sword.png">
+						<p id = "damage"></p>
+					</div>
+					
+					<div>
+						<img src = "Images/heartV.png">
+						<p id = "vampirism"></p>
+					</div>
+				</div>
+				<div id = "enemy_stats">
+					<h1 id = "enemy_name">??????</h1>
+					<div>
+						<img src = "Images/heart.png">
+						<p id = "enemy_hillpoint">??</p>
+					</div>
+					
+					<div>
+						<img src = "Images/sword.png">
+						<p id = "enemy_damage">??</p>
+					</div>
+					
+					<div>
+						<img src = "Images/heartV.png">
+						<p id = "enemy_vampirism">??</p>
+					</div>
+				</div>
+			</div>
+			<div id = "cImage">
+				<img src = "Images/grass1.jpg" id = "grass1I">
+				<img src = "Images/grass2.jpg" id = "grass2I">
+				<img src = "Images/earth.jpg" id = "earthI">
+				<img src = "Images/tree1.jpg" id = "tree1I">
+				<img src = "Images/tree2.jpg" id = "tree2I">
+				<img src = "Images/door.png" id = "doorI">
+				<img src = "Images/chest.png" id = "chestI">
+				<img src = "Images/skeleton.png" id = "skeletonI">
+				<img src = "Images/vampir.png" id = "vampirI">
+				<img src = "Images/goblin1.png" id = "goblin1I">
+				<img src = "Images/goblin2.png" id = "goblin2I">
+				<img src = "Images/goblin3.png" id = "goblin3I">
+				<img src = "Images/goblin4.png" id = "goblin4I">
+				<img src = "Images/water1.jpg" id = "water1I">
+				<img src = "Images/water2.jpg" id = "water2I">
+				<img src = "Images/hero.png" id = "heroI">
+				<img src = "Images/space.png" id = "spaceI">
+			</div>
+			<script src = "JavaScript/map.js"></script>
+			<script src = "JavaScript/game.js"></script>
+			<img id = "fun" src = "Images/ThisIsBeginning.png">
+			<a id = "shit" onclick = "funA()">Do you think this game is shit???</a>
+			<a id = "backToMenu" onclick = "document.getElementById('gameLook').style.display = 'none'; document.getElementById('menu').style.display = 'block'; deleteWorld();">Back</a>
+			<a id = "refresh" onclick = "replay();">Refresh</a>
+		</div>
+		<a href = "../../../index.html" class = "home">Home</a>
+	</body>
+	<script src = "../../YandexMetrika.js"></script>
+</html>

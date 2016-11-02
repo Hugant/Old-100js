@@ -1,0 +1,5 @@
+AddDefaultCharset UTF-8 
+RewriteEngine On
+
+RewriteRule ^hugant$ Days/Day 1(RandomBackgroundColor)/Day1.html
+RewriteRule ^hugant/$ Days/Day 1(RandomBackgroundColor)/Day1.html [L]

@@ -1,0 +1,113 @@
+*
+{
+	outline: none;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body
+{
+    background-color: white;
+}
+
+.home
+{
+	position: absolute;
+	right: 2%;
+	bottom: 2%;
+	width: 100px;
+	height: 25px;
+	color: white;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+	text-decoration: none;
+}
+
+.home:hover
+{
+    border-color: black;
+	cursor: pointer;
+}
+
+.home:active
+{
+	background: black;
+}
+
+.center
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 610px;
+	margin-left: -270px;
+	margin-top: -270px;
+}
+
+.Block
+{
+	display: inline-block;
+	width: 200px;
+    height: 30px;
+    margin-bottom: 150px;
+}
+
+#RedButton
+{
+    background: red;
+}
+
+#YellowButton
+{
+    background: Yellow;
+}
+
+#BlueButton
+{
+    background: Blue;
+}
+
+#PinkButton
+{
+    background: Pink;
+}
+
+#AquaButton
+{
+    background: Aqua;
+}
+
+#OrangeButton
+{
+    background: Orange;
+}
+
+#GreenButton
+{
+    background: Green;
+}
+
+#BrownButton
+{
+    background-color: brown;
+}
+
+input
+{
+    color: white;
+	width: 150px;
+    text-align: center;
+    border: 1px solid white;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    padding: 10px 20px;
+}
+
+input:hover
+{
+    border-color: black;
+}

@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<link rel = "short icon" href = "../../../Images/icon.ico" type="image/x-icon">
+        <title>Solve my barley-break</title>
+        <meta charset = "UTF-8">
+        <link rel = "stylesheet" href = "Style/Style.css">
+	</head>
+	<body>
+		<div id = "title">
+			<p>Solve my barley-break</p>
+		</div>
+		
+		<div id = "menu">
+			<a class = "gameButtons" onclick = "document.getElementById('menu').style.display = 'none'; document.getElementById('game').style.display = 'block'">Play</a>
+			<a class = "gameButtons" onclick = "document.getElementById('menu').style.display = 'none'; document.getElementById('tutorial').style.display = 'block'">Tutorial</a>
+		</div>
+		
+		<div id = "tutorial">
+			<h1 class = "titleMenu">Basics</h1>
+			<p class = "mvBoli">You have 16 blocks from 1 to 15 and the block with the sign &#1758;, located in a random order</p>
+			<img src = "Images/example1.png">
+			
+			<h1 class = "titleMenu">Your task</h1>
+			<p class = "mvBoli">You have to arrange all numbers in ascending order</p>
+			<img src = "Images/example2.png">
+			
+			<h1 class = "titleMenu">Control</h1>
+			<p class = "mvBoli">If you hover the mouse on the block you will see a red or green outline</p>
+			<p class = "mvBoli">Green:</p>
+			<img src = "Images/greenBorder.png">
+			<p class = "mvBoli">Red:</p>
+			<img src = "Images/redBorder.png">
+			
+			<h1 class = "titleMenu"> Movement of the blocks</h1>
+			<p class = "mvBoli">You can transfer onle those blocks which are located at the top, bottom, right, left, and the only block with a sign &#1758;
+			<p class = "mvBoli">These blocks when you hover mouse are highlighted in <span style = " color:green;">green</span>, respectively, those blocks which cannot be changed is highlighted in <span style = "color:red;">red</span></p>
+			<p class = "mvBoli">If you clicking on the block with a green highlight, it will be swapped whit a block whis a sign &#1758;</p>
+			
+			<h1 class = "titleMenu">Good luck!</p>
+			
+			<a class = "gameButtons" onclick = "document.getElementById('tutorial').style.display = 'none'; document.getElementById('menu').style.display = 'block'">Back</a>
+		</div>
+		
+		<div id = "game">
+			<div id = "1"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "2"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "3"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "4"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "5"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "6"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "7"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "8"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "9"  class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "10" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "11" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "12" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "13" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "14" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "15" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<div id = "16" class = "block" onclick = "swapBlock(this.innerHTML)"></div>
+			<a class = "gameButtons" onclick = "document.getElementById('game').style.display = 'none'; document.getElementById('menu').style.display = 'block'">Back</a>
+			<h1 id = "win"></h1>
+		</div>
+		<a href = "../../../index.html" class = "home">Home</a>
+	</body>
+	<script src = "JavaScript/Division.js"></script>
+	<script src = "../../YandexMetrika.js"></script>
+</html>
