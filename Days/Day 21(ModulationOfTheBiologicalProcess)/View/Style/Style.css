@@ -1,0 +1,54 @@
+body
+{
+    background: black;
+    -webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+    cursor: default;
+}
+
+#title
+{
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 500;
+    font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+#center
+{
+    width: 960px;
+    margin: 0 auto;
+}
+
+#canvas
+{
+    width: 960px;
+    height: 480px;
+    border-radius: 5px;
+}
+
+#loadImages img
+{
+    display: none;
+}
+
+
+.home
+{
+    top: 20px;
+    right: 20px;
+}
+
+.home:hover
+{
+    border-color: red;
+}
+
+.home:active
+{
+    background: white;
+    border-color: white;
+    color: black;
+}
