@@ -43,6 +43,8 @@ var init = {
 
                                 var actor = {
                                     name: "Rabbit Man",
+                                    hungry: 0,
+                                    inLove: 0,
                                     x: j,
                                     y: i
                                 }
@@ -51,12 +53,14 @@ var init = {
 
                                 var actor = {
                                     name: "Rabbit Woman",
+                                    hungry: 0,
+                                    inLove: 0,
                                     x: j,
                                     y: i
                                 }
                             }
 
-                            actorCoords[actor.y + "_" + actor.x] = actor;
+                            actorCoords[actor.x + "_" + actor.y] = actor;
     						actorList.push(actor);
 
                         } else if(Math.random() > 0.9) {
@@ -65,6 +69,8 @@ var init = {
 
                                 var actor = {
                                     name: "Volf Man",
+                                    hungry: 0,
+                                    inLove: 0,
                                     x: j,
                                     y: i
                                 }
@@ -73,12 +79,14 @@ var init = {
 
                                 var actor = {
                                     name: "Volf Woman",
+                                    hungry: 0,
+                                    inLove: 0,
                                     x: j,
                                     y: i
                                 }
                             }
 
-                            actorCoords[actor.y + "_" + actor.x] = actor;
+                            actorCoords[actor.x + "_" + actor.y] = actor;
     						actorList.push(actor);
                         }
                     }

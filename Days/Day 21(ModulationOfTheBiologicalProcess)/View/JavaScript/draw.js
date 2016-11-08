@@ -6,6 +6,9 @@ var rabbitM = document.getElementById("rabbitM");
 var rabbitW = document.getElementById("rabbitW");
 var volfM = document.getElementById("volfM");
 var volfW = document.getElementById("volfW");
+var hungry = document.getElementById("hungry");
+var inLove = document.getElementById("inLove");
+var death = document.getElementById("death");
 
 var draw = {
     map: function() {
@@ -65,6 +68,16 @@ var draw = {
     					context.drawImage(volfW, xMap, yMap);
     					break;
     			}
+
+                if(actorCoords[j + "_" + i] != undefined && actorCoords[j + "_" + i].hungry == 1)
+                {
+                    context.drawImage(hungry, xMap, yMap + 1);
+                }
+
+                if(actorCoords[j + "_" + i] != undefined && actorCoords[j + "_" + i].inLove == 1)
+                {
+                    context.drawImage(inLove, xMap + 30, yMap + 4);
+                }
     			xMap += 48;
     		}
     		yMap += 48;
@@ -136,6 +149,16 @@ var draw = {
                     context.drawImage(volfW, dx, dy);
                     break;
     		}
+
+            if(actorCoords[actor.x + "_" + actor.y] != undefined && actorCoords[j + "_" + i].hungry == 1)
+            {
+                context.drawImage(hungry, xMap, yMap + 1);
+            }
+
+            if(actorCoords[actor.x + "_" + actor.y] != undefined && actorCoords[j + "_" + i].inLove == 1)
+            {
+                context.drawImage(inLove, xMap + 30, yMap + 4);
+            }
 
     		if(futureX != personX)
     		{
@@ -210,6 +233,16 @@ var draw = {
                     context.drawImage(volfW, dx, dy);
                     break;
     		}
+
+            if(actorCoords[actor.x + "_" + actor.y] != undefined && actorCoords[j + "_" + i].hungry == 1)
+            {
+                context.drawImage(hungry, xMap, yMap + 1);
+            }
+
+            if(actorCoords[actor.x + "_" + actor.y] != undefined && actorCoords[j + "_" + i].inLove == 1)
+            {
+                context.drawImage(inLove, xMap + 30, yMap + 4);
+            }
 
     		if(futureX != personX)
     		{
