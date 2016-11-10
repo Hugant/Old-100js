@@ -136,7 +136,7 @@ function gameLoop()
 				}
 
 				out.personStats(player);
-			}, 250);
+			}, 200);
 		}
 	}, 150);
 }
