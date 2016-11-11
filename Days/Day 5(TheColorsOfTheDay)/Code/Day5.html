@@ -23,15 +23,15 @@
 				<h2 class = "htmlT">html:</h2>
 				<code>&lt;div class = "time">
     &lt;h1>The current Time:&lt;/h1>
-    &lt;div id = "hours"   class = "timer">&lt;/div> 
-    &lt;div id = "minutes" class = "timer">&lt;/div> 
-    &lt;div id = "seconds" class = "timer">&lt;/div> 
+    &lt;div id = "hours"   class = "timer">&lt;/div>
+    &lt;div id = "minutes" class = "timer">&lt;/div>
+    &lt;div id = "seconds" class = "timer">&lt;/div>
 &lt;/div>
 &lt;div class = "color">
     &lt;h1>The current Color:&lt;/h1>
     &lt;div id = "ColorH" class = "timer">&lt;/div>
-    &lt;div id = "ColorM" class = "timer">&lt;/div> 
-    &lt;div id = "ColorS" class = "timer">&lt;/div>  
+    &lt;div id = "ColorM" class = "timer">&lt;/div>
+    &lt;div id = "ColorS" class = "timer">&lt;/div>
 &lt;/div></code>
 			</pre>
 			<p> Не забываем добавить тегу &lt;body> идентификатор id = "body".</p>
@@ -102,15 +102,15 @@ var hours = time.getHours();</code>
     var hoursC = Math.round(255 * (hours / 23));
     var minutesC = Math.round(255 * (minutes / 59));
     var secondsC = Math.round(255 * (seconds / 59));
-    
+
     colorH = CheckColor(hoursC.toString(16)).toUpperCase();
     colorM = CheckColor(minutesC.toString(16)).toUpperCase();
     colorS = CheckColor(secondsC.toString(16)).toUpperCase();
-    
+
     document.getElementById("ColorH").innerHTML = colorH;
     document.getElementById("ColorM").innerHTML = colorM;
     document.getElementById("ColorS").innerHTML = colorS;
-    
+
     document.getElementById("body").style.backgroundColor = "#" + colorH + colorM + colorS;
 }</code>
 			</pre>
@@ -154,6 +154,7 @@ var hours = time.getHours();</code>
 		<footer>
 			<span id = "copyright">&copy; Hugant 2016</span>
 			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+			<span id = "github"><a href = "https://github.com/Hugant/100DaysOfJavaScript" target = "_blank">GitHub</a><img src = "../../../Images/octocat.png"></span>
 		</footer>
 	</body>
 </html>

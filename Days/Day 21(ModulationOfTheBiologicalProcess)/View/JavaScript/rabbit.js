@@ -8,6 +8,8 @@ function Rabbit(sex, parants, x, y) {
 	this.hunger = 0;
 	this.inLove = 0;
 	this.image = sex ? rabbitM : rabbitW;
+	this.food = [];
+	this.freeCells = [];
 	this.x = x;
 	this.y = y;
 

@@ -96,29 +96,29 @@ function soundClick(button) {
     switch(button) {
 	case "red":
 		red.stop();// остановка
-		red.play();// воспроизведение 
+		red.play();// воспроизведение
 		break;
-		
+
 	case "orange":
 		orange.stop();
 		orange.play();
 		break;
-		
+
 	case "yellow":
 		yellow.stop();
 		yellow.play();
 		break;
-		
+
 	case "green":
 		green.stop();
 		green.play();
 		break;
-		
+
 	case "cyan":
 		cyan.stop();
 		cyan.play();
 		break;
-		
+
 	case "blue":
 		blue.stop();
 		blue.play();
@@ -127,7 +127,7 @@ function soundClick(button) {
 }
 // функция остановки
 HTMLAudioElement.prototype.stop = function() {
-	this.pause();// приостанавливаем 
+	this.pause();// приостанавливаем
 	this.currentTime = 0.0;// обнуляем время воспроизведения
 }</code>
 			</pre>
@@ -143,6 +143,7 @@ HTMLAudioElement.prototype.stop = function() {
 		<footer>
 			<span id = "copyright">&copy; Hugant 2016</span>
 			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+			<span id = "github"><a href = "https://github.com/Hugant/100DaysOfJavaScript" target = "_blank">GitHub</a><img src = "../../../Images/octocat.png"></span>
 		</footer>
 	</body>
 </html>

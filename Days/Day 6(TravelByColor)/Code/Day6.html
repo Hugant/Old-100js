@@ -72,25 +72,25 @@ var SecondColor;
 function TravelByColor() {
     FirstColor = document.getElementById("input1").value.toUpperCase();// Получаем значение из input'ов и переводим в заглавные буквы
     SecondColor = document.getElementById("input2").value.toUpperCase();
-    
-    FirstColor = FirstColor.substr(1,6);// Если вы вводите цвета без решетки(#FFFFFF, а FFFFFF), тогда это не нужно. 
-    SecondColor = SecondColor.substr(1,6);// Если вы вводите цвета без решетки(#FFFFFF, а FFFFFF), тогда это не нужно. 
-    
+
+    FirstColor = FirstColor.substr(1,6);// Если вы вводите цвета без решетки(#FFFFFF, а FFFFFF), тогда это не нужно.
+    SecondColor = SecondColor.substr(1,6);// Если вы вводите цвета без решетки(#FFFFFF, а FFFFFF), тогда это не нужно.
+
     RedF = FirstColor.substr(0,2);// Получаем Red
     GreenF = FirstColor.substr(2,2);// Получаем Green
     BlueF = FirstColor.substr(4,2);// Получаем Blue
-    
+
     RedS = SecondColor.substr(0,2);
     GreenS = SecondColor.substr(2,2);
     BlueS = SecondColor.substr(4,2);
-    
+
     FirstColor = parseInt(FirstColor, 16);// Переводим в 16 систему счисления
     SecondColor = parseInt(SecondColor, 16);
-    
+
     RedF = parseInt(RedF,16);// Переводим в 16 систему счисления
     GreenF = parseInt(GreenF,16);
-    BlueF = parseInt(BlueF,16);	
-    
+    BlueF = parseInt(BlueF,16);
+
     RedS = parseInt(RedS,16);
     GreenS = parseInt(GreenS,16);
     BlueS = parseInt(BlueS,16);
@@ -113,20 +113,20 @@ function TravelByColor() {
                 redF--;
             else
                 clearInterval(intervalID3);// как только они стали равными, выходим из интервала
-            	
+
             redF = convert(redF).toString(16);// переводим в строки
             greenF = greenF.toString(16);
             blueF = blueF.toString(16);
-            
+
             document.getElementById("body").style.background = "#" + redF + greenF + blueF;// меняем фон
-            
+
             redF = parseInt(redF, 16);// переводим обратно в hex, для того чтобы могли производить арефметические операции
             greenF = parseInt(greenF, 16);
             blueF = parseInt(blueF, 16);
         }, 200);
-		
+
 		// так же и с Green и Blue
-        
+
         var intervalID2 = setInterval( function() {
             if(greenF < greenS)
             	greenF++;
@@ -134,18 +134,18 @@ function TravelByColor() {
             	greenF--;
             else
             	clearInterval(intervalID2);
-            	
+
             redF = redF.toString(16);
             greenF = convert(greenF).toString(16);
             blueF = blueF.toString(16);
-            
+
             document.getElementById("body").style.background = "#" + redF + greenF + blueF;
-            
+
             redF = parseInt(redF, 16);
             greenF = parseInt(greenF, 16);
             blueF = parseInt(blueF, 16);
         }, 200);
-        
+
         var intervalID1 = setInterval(function() {
             if(blueF < blueS)
             	blueF++;
@@ -153,13 +153,13 @@ function TravelByColor() {
             	blueF--;
             else
             	clearInterval(intervalID1);
-            	
+
             redF = redF.toString(16);
             greenF = greenF.toString(16);
             blueF = convert(blueF).toString(16);
-            
+
             document.getElementById("body").style.background = "#" + redF + greenF + blueF;
-            
+
             redF = parseInt(redF, 16);
             greenF = parseInt(greenF, 16);
             blueF = parseInt(blueF, 16);
@@ -190,6 +190,7 @@ function TravelByColor() {
 		<footer>
 			<span id = "copyright">&copy; Hugant 2016</span>
 			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
+			<span id = "github"><a href = "https://github.com/Hugant/100DaysOfJavaScript" target = "_blank">GitHub</a><img src = "../../../Images/octocat.png"></span>
 		</footer>
 	</body>
 </html>
