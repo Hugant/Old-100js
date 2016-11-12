@@ -39,7 +39,7 @@ var init = {
                         } else {
                             Actors[j + "_" + i] = new Rabbit(0, {dad: 0, mom: 0}, j, i);
                         }
-                    }/* else if(Math.random() > 0.9) {
+                    } /*else if(Math.random() > 0.9) {
                         if(Math.random() > 0.5) {
                             Actors[j + "_" + i] = new Volf(1, {dad: 0, mom: 0}, j, i);
                         } else {
@@ -49,6 +49,8 @@ var init = {
                 }
             }
         }
-        //Actors[3 + "_" + 4] = new Rabbit(1, {dad: 0, mom: 0}, 3, 4);
+        //Actors[0 + "_" + 4] = new Rabbit(1, {dad: 0, mom: 0}, 0, 4);
+        //Actors[0 + "_" + 5] = new Rabbit(0, {dad: 0, mom: 0}, 0, 5);
+        //Actors[3 + "_" + 5] = new Rabbit(0, {dad: 0, mom: 0}, 3, 5);
     }
 }

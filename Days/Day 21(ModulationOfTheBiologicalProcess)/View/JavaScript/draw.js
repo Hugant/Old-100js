@@ -41,8 +41,8 @@ var draw = {
     },
 
     actors: function() {
-        for (var actor in Actors) {
-            if(actor != null) {
+        for(var actor in Actors) {
+            if(Actors[actor] != null) {
                 context.drawImage(Actors[actor].image, Actors[actor].x * 48, Actors[actor].y * 48);
 
                 if(actor.hungry == 1) {
@@ -112,7 +112,7 @@ var draw = {
     			if(dy / 48 == futureY)
     				clearInterval(intervalID);
     		}
-    	}, 10);
+    	}, 16.6);
     },
 
     attackStep: function(actor, dir) {

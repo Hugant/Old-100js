@@ -17,18 +17,29 @@ var numberCreatures = 0;// общее количество животных
 
 window.onload = function() {
     init.world();// генерируем мир
-    gameLoop();// запускаем главный цикл игры
+    gameLoop();
+    //gameLoop();// запускаем главный цикл игры
 }
 
-function gameLoop() {
 
-    setInterval(function () {
+window.onclick = function gameLoop() {
+    id = setInterval(function () {
+
+    var activeActors = {};
+
     for(var actor in Actors) {
         if(Actors[actor] != null) {
+            activeActors[actor] = Actors[actor];
+        }
+    }
+
+    for(var actor in activeActors) {
+            //console.log(actor);
             Actors[actor].searchFood();
             moveTo(Actors[actor], Actors[actor].stepToFood());
-        }
-    }}, 2000);
+    }
+    activeActors = {};
+},1500);
 }
 
 function moveTo(actor, dir) {
@@ -44,17 +55,49 @@ function moveTo(actor, dir) {
         }
     } else {// если это передвижени или заяц ест траву
         if(newKey == (actor.x + "_" + actor.y)) {// если заяц съел траву
-			actor.hungry = 0;// он теперь не голодный
-            actor.inLove = 1;// может размножаться
-			BackMap[actor.y][actor.x] = 1;// убераем траву с карты
-            draw.place(actor.x, actor.y);// рисуем клетку карты
-			draw.actor(actor);// рисуем зайца
+            if(BackMap[actor.y][actor.x] == 2) {
+                actor.hungry = 0;// он теперь не голодный
+                actor.inLove = 1;// может размножаться
+    			BackMap[actor.y][actor.x] = 1;// убираем траву с карты
+                draw.place(actor.x, actor.y);// рисуем клетку карты
+    			draw.actor(actor);// рисуем зайца
+            }
 		} else {// если это передвижение
-            Actors[actor.x + "_" + actor.y] = null;// удаляем старое расположение
             Actors[(actor.x + dir.x) + "_" + (actor.y + dir.y)] = actor;// создаем новове расположение
+            Actors[actor.x + "_" + actor.y] = null;// удаляем старое расположение
             draw.step(actor, dir);// анимация перехода в другую клетку
             actor.x = actor.x + dir.x;
             actor.y = actor.y + dir.y;
         }
     }
 }
+
+var anim;
+var count = 0;
+
+var requestAF = (function() {
+	return requestAnimationFrame       ||
+		   webkitRequestAnimationFrame ||
+		   mozRequestAnimationFrame    ||
+		   oRequestAnimationFrame      ||
+		   msRequestAnimationFrame     ||
+		   function(callback) {
+			   setTimeout(callback, 1000 / 60);
+		   };
+})();
+
+var setAnimation = function(callback) {
+	anim = callback;
+};
+
+var animationStep = function() {
+	anim();
+	requestAF(animationStep);
+};
+
+var animationStart = function(callback) {
+	anim = callback;
+	animationStep();
+};
+
+function space() {}

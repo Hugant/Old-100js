@@ -1,7 +1,7 @@
 var widthMain = c.width = window.innerWidth;
 var heightMain = c.height = window.innerHeight;
 var ctx = c.getContext('2d');
-    
+
 var accelleration = 0.1;
 
 var size = 1;
@@ -19,7 +19,7 @@ function clear()
 	ctx.fillRect(0, 0, widthMain, heightMain);
 }
 
-function drawCircle(x, y, radius, color) 
+function drawCircle(x, y, radius, color)
 {
 	ctx.beginPath();
     ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
@@ -74,14 +74,14 @@ function deleteRaindrops()
 }
 
 function Rain()
-{	
+{
 	if(time === 0)
 	{
 		createRaindrops();
 	}
 	ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
 	ctx.fillRect(0, 0, widthMain, heightMain);
-	
+
 	for(var i = 0; i < widthMain; i++)
 	{
 		var currentY = dots[i] - 1;
@@ -94,7 +94,7 @@ function Rain()
 			dots[i] = dotsVel[i] = 0;
 	}
 	createClouds();
-	
+
 	if(time < 150)
 		time++;
 	else if(time > 150)
@@ -120,7 +120,6 @@ function Rain()
 			numberRaindrops += 0.0001;
 		time = 1;
 	}
-	console.log(time);
 }
 
 function drawSun(x, y, radius)

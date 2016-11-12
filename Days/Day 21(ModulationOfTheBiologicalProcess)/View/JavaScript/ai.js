@@ -1,17 +1,20 @@
 
 Rabbit.prototype.searchFood = function() {
     this.freeCells.splice(0, this.freeCells.length);
-    this.food.splice(0, this.food.lenght);
+    this.food.splice(0, this.food.length);
     var count = 1;
     for(var i = this.y - 1; i < this.y + 2; i++) {
         for(var j = this.x - 1; j < this.x + 2; j++) {
             if(i >= 0 && i <= 9 && j >= 0 && j <= 19) {// исключаем границы карты
-                if(BackMap[i][j] == 2 && (Actors[j + "_" + i] != null || Actors[j + "_" + i] == undefined)) {
+                if((i == this.y && j == this.x) && BackMap[i][j] == 2) {
+                    this.food.push({x: j, y: i, steps: 0});
+                } else if(BackMap[i][j] == 2 && Actors[j + "_" + i] == null) {
                     this.food.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});// добовляем в массив найденую еду
                 }
 
+                //console.log(("count: " + count + ", x: " + j + ", y: " + i + " = ") + (Actors[j + "_" + i] == null))
                 if(count % 2 == 0 &&
-                  (Actors[j + "_" + i] != null || Actors[j + "_" + i] == undefined) &&
+                  Actors[j + "_" + i] == null &&
                   (BackMap[i][j] == 1 || BackMap[i][j] == 2)) {
                     this.freeCells.push({x: j, y: i});
                 }
@@ -19,7 +22,9 @@ Rabbit.prototype.searchFood = function() {
             count++;
         }
     }
-
+    //console.log(this.name + " freeCells =  " + this.freeCells);
+    //console.log(this.name + " food =  " + this.food);
+    //console.log("-------------------");
     this.food.sort(min);// сортируем по количеству шагов
 }
 
