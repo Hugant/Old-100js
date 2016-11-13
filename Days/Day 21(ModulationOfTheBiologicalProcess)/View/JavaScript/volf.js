@@ -10,6 +10,7 @@ function Volf(sex, parants, x, y) {
 	this.image = sex ? volfM : volfW;
 	this.food = [];
 	this.freeCells = [];
+	this.fans = [];
 	this.x = x;
 	this.y = y;
 

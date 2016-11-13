@@ -17,6 +17,11 @@ Rabbit.prototype.searchFood = function() {
                   (BackMap[i][j] == 1 || BackMap[i][j] == 2)) {
                     this.freeCells.push({x: j, y: i});
                 }
+
+                if(Actors[j + "_" + i] != null &&
+                   Actors[j + "_" + i].name == "Rabbit " + (Actors[j + "_" + i].sex ? "Woman" : "Man")) {
+                       this.fans.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});
+                }
             }
             count++;
         }
@@ -44,6 +49,11 @@ Volf.prototype.searchFood = function() {
                   (Actors[j + "_" + i].name == "Rabbit Man"     ||
                    Actors[j + "_" + i].name == "Rabbit Woman"))) {
                        this.freeCells.push({x: j, y: i});
+                }
+
+                if(Actors[j + "_" + i] != null &&
+                   Actors[j + "_" + i].name == "Volf " + (Actors[j + "_" + i].sex ? "Woman" : "Man")) {
+                       this.fans.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});
                 }
             }
             count++;
@@ -100,6 +110,66 @@ function stepToFood() {
                             if((this.freeCells[cell].x == this.food[f].x) &&
                                (this.freeCells[cell].y == (this.food[f].y - (this.food[f].y - this.y)))) {
                                    return {x: this.food[f].x - this.x, y: 0};
+                            }
+                        }
+                    }
+                    continue;
+            }
+        }
+
+        var cell = Math.floor(Math.random() * this.freeCells.length);
+        return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
+    }
+}
+
+function stepToLove() {
+    if(this.freeCells[0] == undefined) {
+        return {x: 0, y: 0};
+    } else if(this.fans[0] == undefined) {
+        var cell = Math.floor(Math.random() * this.freeCells.length);
+        return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
+    } else {
+        for(var f in this.funs) {
+            switch(this.funs[f].steps) {
+                case 0:
+                    return {x: 0, y: 0};
+
+                case 1:
+                    for(var cell in this.freeCells) {
+                        if(this.freeCells[cell].x == this.fans[f].x &&
+                           this.freeCells[cell].y == this.fans[f].y) {
+                               return {x: this.fans[f].x - this.x, y: this.fans[f].y - this.y};
+                        }
+                    }
+                    continue;
+
+                case 2:
+                    if(Math.random() > 0.5) {
+                        for(var cell in this.freeCells) {
+                            if((this.freeCells[cell].x == this.fans[f].x) &&
+                               (this.freeCells[cell].y == (this.fans[f].y - (this.fans[f].y - this.y)))) {
+                                   return {x: this.fans[f].x - this.x, y: 0};
+                            }
+                        }
+
+                        for(var cell in this.freeCells) {
+                            if(this.freeCells[cell].x == (this.fans[f].x - (this.fans[f].x - this.x)) &&
+                               this.freeCells[cell].y == this.fans[f].y) {
+                                   return {x: 0, y: this.fans[f].y - this.y};
+                            }
+                        }
+                    } else {
+                        for(var cell in this.freeCells) {
+                            if(this.freeCells[cell].x == (this.fans[f].x - (this.fans[f].x - this.x)) &&
+                               this.freeCells[cell].y == this.fans[f].y) {
+                                   return {x: 0, y: this.fans[f].y - this.y};
+                            }
+                        }
+
+                        for(var cell in this.freeCells) {
+                            if((this.freeCells[cell].x == this.fans[f].x) &&
+                               (this.freeCells[cell].y == (this.fans[f].y - (this.fans[f].y - this.y)))) {
+                                   return {x: this.fans[f].x - this.x, y: 0};
                             }
                         }
                     }

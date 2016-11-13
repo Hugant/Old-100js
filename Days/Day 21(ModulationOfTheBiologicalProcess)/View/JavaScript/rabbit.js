@@ -10,6 +10,7 @@ function Rabbit(sex, parants, x, y) {
 	this.image = sex ? rabbitM : rabbitW;
 	this.food = [];
 	this.freeCells = [];
+	this.fans = [];
 	this.x = x;
 	this.y = y;
 

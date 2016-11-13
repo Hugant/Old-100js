@@ -36,7 +36,13 @@ window.onclick = function gameLoop() {
     for(var actor in activeActors) {
             //console.log(actor);
             Actors[actor].searchFood();
-            moveTo(Actors[actor], Actors[actor].stepToFood());
+            if(Actors[actor].hungry == 1) {
+                moveTo(Actors[actor], Actors[actor].stepToFood());
+            }
+
+            if(Actors[actor].inLove == 1) {
+                moveTo(Actors[actor], Actors[actor].stepToLove());
+            }
     }
     activeActors = {};
 },1500);
