@@ -48,56 +48,29 @@ function moveTo(actor, dir) {
     if(/*Actors[newKey] != null*/ 0) {// если произошла атака
         var victim = Actors[newKey];// кого начили бить
 
-        if(actor.name == "Rabbit") {
+        if(actor.name == "Rabbit Man" || actor.name == "Rabbit Woman") {
 
-        } else if(actor.name == "Volf") {
+        } else if(actor.name == "Volf Man" || actor.name == "Volf Woman") {
 
         }
     } else {// если это передвижени или заяц ест траву
-        if(newKey == (actor.x + "_" + actor.y)) {// если заяц съел траву
+        if(newKey == (actor.x + "_" + actor.y) &&
+          (actor.name == "Rabbit Man"          ||
+           actor.name == "Rabbit Woman"        )) {// если заяц съел траву
             if(BackMap[actor.y][actor.x] == 2) {
                 actor.hungry = 0;// он теперь не голодный
                 actor.inLove = 1;// может размножаться
     			BackMap[actor.y][actor.x] = 1;// убираем траву с карты
                 draw.place(actor.x, actor.y);// рисуем клетку карты
     			draw.actor(actor);// рисуем зайца
+
             }
 		} else {// если это передвижение
-            Actors[(actor.x + dir.x) + "_" + (actor.y + dir.y)] = actor;// создаем новове расположение
             Actors[actor.x + "_" + actor.y] = null;// удаляем старое расположение
+            Actors[(actor.x + dir.x) + "_" + (actor.y + dir.y)] = actor;// создаем новове расположение
             draw.step(actor, dir);// анимация перехода в другую клетку
             actor.x = actor.x + dir.x;
             actor.y = actor.y + dir.y;
         }
     }
 }
-
-var anim;
-var count = 0;
-
-var requestAF = (function() {
-	return requestAnimationFrame       ||
-		   webkitRequestAnimationFrame ||
-		   mozRequestAnimationFrame    ||
-		   oRequestAnimationFrame      ||
-		   msRequestAnimationFrame     ||
-		   function(callback) {
-			   setTimeout(callback, 1000 / 60);
-		   };
-})();
-
-var setAnimation = function(callback) {
-	anim = callback;
-};
-
-var animationStep = function() {
-	anim();
-	requestAF(animationStep);
-};
-
-var animationStart = function(callback) {
-	anim = callback;
-	animationStep();
-};
-
-function space() {}

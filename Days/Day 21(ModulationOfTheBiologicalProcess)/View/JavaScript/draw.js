@@ -105,6 +105,14 @@ var draw = {
 
             context.drawImage(actor.image, dx, dy);
 
+            if(actor.inLove == 1) {
+    			context.drawImage(inLove, dx + 30, dy + 4);
+    		}
+
+            if(actor.hungry == 1) {
+    			context.drawImage(hungry, dx, dy + 1);
+    		}
+
     		if(futureX != personX) {
     			if(dx / 48 == futureX)
     				clearInterval(intervalID);
@@ -112,7 +120,7 @@ var draw = {
     			if(dy / 48 == futureY)
     				clearInterval(intervalID);
     		}
-    	}, 16.6);
+    	}, 10);
     },
 
     attackStep: function(actor, dir) {
