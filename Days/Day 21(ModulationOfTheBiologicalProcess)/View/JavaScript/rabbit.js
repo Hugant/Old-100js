@@ -1,12 +1,13 @@
 
-function Rabbit(sex, parants, x, y) {
+function Rabbit(sex, parant, x, y) {
 	this.id = numberCreatures;
 	this.name = "Rabbit " + (sex ? "Man" : "Woman");
 	this.sex = sex;
-	this.parents = parants;
-	this.age = 0;
-	this.hungry = 1;
-	this.inLove = 0;
+	this.parents = parant;
+	this.age = 120;
+	this.hungry = 0;
+	this.notHungry = 3;
+	this.inLove = 1;
 	this.image = sex ? rabbitM : rabbitW;
 	this.food = [];
 	this.freeCells = [];

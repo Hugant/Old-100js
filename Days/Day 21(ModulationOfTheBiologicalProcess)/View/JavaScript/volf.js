@@ -1,12 +1,13 @@
 
-function Volf(sex, parants, x, y) {
+function Volf(sex, parant, x, y) {
 	this.id = numberCreatures;
 	this.name = "Volf " + (sex ? "Man" : "Woman");
 	this.sex = sex;
-	this.parents = parants;
-	this.age = 0;
-	this.hungry = 1;
-	this.inLove = 0;
+	this.parents = parant;
+	this.age = 180;
+	this.hungry = 0;
+	this.notHungry = 3;
+	this.inLove = 1;
 	this.image = sex ? volfM : volfW;
 	this.food = [];
 	this.freeCells = [];

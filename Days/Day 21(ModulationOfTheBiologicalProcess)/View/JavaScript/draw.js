@@ -79,6 +79,10 @@ var draw = {
 		if(actor.inLove == 1) {
 			context.drawImage(inLove, actor.x * 48 + 30, actor.y * 48 + 4);
 		}
+
+        if(actor.age < 5) {
+            context.drawImage(death, actor.x * 48 + 23, actor.y * 48 + 20);
+        }
 	},
 
     step: function(actor, dir) {
@@ -112,6 +116,10 @@ var draw = {
             if(actor.hungry == 1) {
     			context.drawImage(hungry, dx, dy + 1);
     		}
+
+            if(actor.age < 5) {
+                context.drawImage(death, dx + 23, dy + 20);
+            }
 
     		if(futureX != personX) {
     			if(dx / 48 == futureX)
@@ -157,8 +165,20 @@ var draw = {
     			else if(dir.y < 0)
     				dy += 1;
     		}
+            context.drawImage(Actors[futureX + "_" + futureY].image, futureX * 48, futureY * 48);
+            context.drawImage(actor.image, dx, dy);
 
-            draw.actor(Actors[futureX + "_" + futureY]);
+            if(actor.inLove == 1) {
+    			context.drawImage(inLove, dx + 30, dy + 4);
+    		}
+
+            if(actor.hungry == 1) {
+    			context.drawImage(hungry, dx, dy + 1);
+    		}
+
+            if(actor.age < 5) {
+                context.drawImage(death, dx + 23, dy + 20);
+            }
 
     		if(futureX != personX){
     			if(i == 24)

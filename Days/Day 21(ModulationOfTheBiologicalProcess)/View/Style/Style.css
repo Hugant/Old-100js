@@ -29,11 +29,39 @@ body
     border-radius: 5px;
 }
 
+#info
+{
+    width: 1050px;
+    margin: 20px auto;
+}
+
+#info div
+{
+    display: inline-block;
+    width: 330px;
+    color: white;
+    font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+#info div:first-child
+{
+    margin-right: 20px;
+    margin-left: 30px;
+}
+
+#info div span
+{
+    color: lightblue;
+}
+
+
 #loadImages img
 {
     display: none;
 }
-
 
 .home
 {

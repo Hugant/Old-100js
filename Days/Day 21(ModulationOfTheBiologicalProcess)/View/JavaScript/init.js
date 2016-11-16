@@ -13,7 +13,7 @@ var init = {
 			BackMap[i] = new Array(COLS);
 			for(var j = 0; j < COLS; j++) {
 				if(BackMap[i][j] == null) {
-					if(Math.random() > 0.6) {
+					if(Math.random() > 0.7) {
 						if(Math.random() > 0.5)
 							BackMap[i][j] = 3;
 						else
@@ -47,7 +47,7 @@ var init = {
     },
 
     actors: function() {
-        /*for(var i = 0; i < ROWS; i++) {
+        for(var i = 0; i < ROWS; i++) {
             for(var j = 0; j < COLS; j++) {
                 if(BackMap[i][j] == 1 || BackMap[i][j] == 2) {
                     if(Math.random() > 0.9) {
@@ -65,10 +65,10 @@ var init = {
                     }
                 }
             }
-        }*/
-        Actors[1 + "_" + 4] = new Rabbit(1, {dad: 0, mom: 0}, 1, 4);
-        Actors[2 + "_" + 4] = new Volf(1, {dad: 0, mom: 0}, 2, 4);
-        Actors[0 + "_" + 5] = new Rabbit(0, {dad: 0, mom: 0}, 0, 5);
-        Actors[3 + "_" + 5] = new Rabbit(0, {dad: 0, mom: 0}, 3, 5);
+        }
+        /*Actors[1 + "_" + 4] = new Rabbit(1, 0, 1, 4);
+        Actors[2 + "_" + 4] = new Volf(1, 0, 2, 4);
+        Actors[0 + "_" + 5] = new Rabbit(0, 0, 0, 5);
+        Actors[3 + "_" + 5] = new Rabbit(0, 0, 3, 5);*/
     }
 }
