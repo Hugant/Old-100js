@@ -36,7 +36,7 @@
 			</pre>
 			<p> Не забываем добавить тегу &lt;body> идентификатор id = "body".</p>
 			<br>
-			<p> Для вывода цыфр мы должны использовать моноширинный шрифт, я выбрал несколько:  Monaco, Consolas, Lucida Console, monospace</p>
+			<p> Для вывода цифр мы должны использовать моноширинный шрифт, я выбрал несколько:  Monaco, Consolas, Lucida Console, monospace</p>
 			<br>
 			<p> Добавим стили</p>
 			<pre>
@@ -68,20 +68,20 @@
 			<pre>
 				<code class = "javascript">var time = new Date();</code>
 			</pre>
-			<p> В переменную time присваивают объект типа Date, который предстовляет собой момент времени в формате "Sat Oct 15 2016 21:35:24 GMT+0700".</p>
+			<p> В переменную time присваивают объект типа Date, который представляет собой момент времени в формате "Sat Oct 15 2016 21:35:24 GMT+0700".</p>
 			<br>
-			<p> Теперь из переменной time можно извлеч секунды, минуты, часы.</p>
+			<p> Теперь из переменной time можно извлечь секунды, минуты, часы.</p>
 			<pre>
 				<code class = "javascript">var seconds = time.getSeconds();
 var minutes = time.getMinutes();
 var hours = time.getHours();</code>
 			</pre>
-			<p> Свойство innerHTML представляет собой содержимое элемента, которое хронится в нем в виде строки.</p>
+			<p> Свойство innerHTML представляет собой содержимое элемента, которое хранится в нем в виде строки.</p>
 			<pre>
 				<code class = "javascript">document.getElementById("id").innerHTML</code>
 			</pre>
 			<p> Метод toUpperCase() переводит строку в заглавные буквы.</p>
-			<p> Метод Math.round() возвращает число,округленное к ближайшему целому числу.</p>
+			<p> Метод Math.round() возвращает число, округленное к ближайшему целому числу.</p>
 			<p> Метод [число].toString([radix]) возвращает строковое представление числа.</p>
 			<p> Где radix это число между 2 и 36, определяющее основание системы счисления в которой нужно представить число(Это необязательный параметр).</p>
 			<br>
@@ -125,7 +125,7 @@ var hours = time.getHours();</code>
     return time;
 }</code>
 			</pre>
-			<p> Тоже самое с цветом, если количество символов меньше 2, добовляем нуль: 0A, 03, 0F.</p>
+			<p> То же самое с цветом, если количество символов меньше 2, добавляем нуль: 0A, 03, 0F.</p>
 			<pre>
 				<code class = "javascript">function CheckColor(color)
 {
@@ -152,9 +152,10 @@ var hours = time.getHours();</code>
 		</div>
 		<a href = "../../../index.html" class = "home test">Home</a>
 		<footer>
-			<span id = "copyright">&copy; Hugant 2016</span>
+			<span id = "copyright">&copy; Hugant <script>document.write(new Date().getFullYear())</script></span>
 			<span id = "codeIsLife">Code is life <b>&#10084;</b></span>
 			<span id = "github"><a href = "https://github.com/Hugant/100DaysOfJavaScript" target = "_blank">GitHub</a><img src = "../../../Images/octocat.png"></span>
 		</footer>
+		<script src = "../../../YandexMetrika.js"></script>
 	</body>
 </html>

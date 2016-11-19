@@ -67,8 +67,9 @@ var init = {
             }
         }
         /*Actors[1 + "_" + 4] = new Rabbit(1, 0, 1, 4);
-        Actors[2 + "_" + 4] = new Volf(1, 0, 2, 4);
-        Actors[0 + "_" + 5] = new Rabbit(0, 0, 0, 5);
-        Actors[3 + "_" + 5] = new Rabbit(0, 0, 3, 5);*/
+        Actors[1 + "_" + 5] = new Rabbit(0, 0, 1, 5);
+        BackMap[4][1] = 2;*/
+        /*Actors[3 + "_" + 5] = new Volf(0, 0, 3, 5);
+        Actors[2 + "_" + 4] = new Volf(1, 0, 2, 4);*/
     }
 }

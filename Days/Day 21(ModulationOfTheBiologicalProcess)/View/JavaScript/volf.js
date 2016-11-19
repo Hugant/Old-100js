@@ -14,6 +14,9 @@ function Volf(sex, parant, x, y) {
 	this.fans = [];
 	this.x = x;
 	this.y = y;
+	this.dx = x * 48;
+	this.dy = y * 48;
+	this.direction = 0;
 
 	numberVolfs++;
 	numberCreatures++;
