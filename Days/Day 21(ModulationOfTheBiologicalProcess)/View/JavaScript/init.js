@@ -52,23 +52,25 @@ var init = {
                 if(BackMap[i][j] == 1 || BackMap[i][j] == 2) {
                     if(Math.random() > 0.9) {
                         if(Math.random() > 0.5) {
-                            Actors[j + "_" + i] = new Rabbit(1, {dad: 0, mom: 0}, j, i);
+                            Actors[j + "_" + i] = new Rabbit(1, j, i);
                         } else {
-                            Actors[j + "_" + i] = new Rabbit(0, {dad: 0, mom: 0}, j, i);
+                            Actors[j + "_" + i] = new Rabbit(0, j, i);
                         }
                     } else if(Math.random() > 0.9) {
                         if(Math.random() > 0.5) {
-                            Actors[j + "_" + i] = new Volf(1, {dad: 0, mom: 0}, j, i);
+                            Actors[j + "_" + i] = new Volf(1, j, i);
                         } else {
-                            Actors[j + "_" + i] = new Volf(0, {dad: 0, mom: 0}, j, i);
+                            Actors[j + "_" + i] = new Volf(0, j, i);
                         }
                     }
                 }
             }
         }
-        /*Actors[1 + "_" + 4] = new Rabbit(1, 0, 1, 4);
-        Actors[1 + "_" + 5] = new Rabbit(0, 0, 1, 5);
-        BackMap[4][1] = 2;*/
+        /*Actors[1 + "_" + 4] = new Volf(1, 1, 4);
+        Actors[1 + "_" + 5] = new Volf(0, 1, 5);
+        BackMap[5][0] = 3;
+        BackMap[4][1] = 2;
+        BackMap[5][1] = 2;*/
         /*Actors[3 + "_" + 5] = new Volf(0, 0, 3, 5);
         Actors[2 + "_" + 4] = new Volf(1, 0, 2, 4);*/
     }

@@ -17,6 +17,11 @@ var draw = {
         intervalID = setInterval( function() {
             if(countLoop == 48) {
                 countLoop = 0;
+                for(var actor in Actors) {
+                    if(Actors[actor] != null) {
+                        Actors[actor].direction = 0;
+                    }
+                }
                 clearInterval(intervalID);
                 return;
             }
@@ -30,7 +35,6 @@ var draw = {
 
                         case 2:
                             Actors[actor].dx++;
-                            //console.log(countLoop + ": " + Actors[actor].dx);
                             break;
 
                         case 3:

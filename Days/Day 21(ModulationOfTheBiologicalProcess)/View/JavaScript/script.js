@@ -23,10 +23,10 @@ window.onload = function() {
     gameLoop();
 }
 
-
+var activeActors = {};
 window.onclick = function gameLoop() {
     id = setInterval(function () {
-        var activeActors = {};
+
 
         for(var actor in Actors) {
             if(Actors[actor] != null) {
@@ -39,8 +39,6 @@ window.onclick = function gameLoop() {
                     numberCreatures--;
 
                     Actors[actor] = null;
-                    draw.map();
-                    draw.actors();
                 } else {
                     Actors[actor].hungry ? Actors[actor].age -= 4 : Actors[actor].age--;
 
@@ -57,6 +55,8 @@ window.onclick = function gameLoop() {
         }
 
         for(var actor in activeActors) {
+
+
             activeActors[actor].search();
             if(activeActors[actor].hungry) {
                 activeActors[actor].move(activeActors[actor].stepToFood());
@@ -65,8 +65,9 @@ window.onclick = function gameLoop() {
             }
         }
         draw.world();
-        outInfo();
         generateGrass();
+        outInfo();
+        //console.log("---------------------------------------------------")
         activeActors = {};
     },1000);
 }

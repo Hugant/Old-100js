@@ -7,11 +7,13 @@ Rabbit.prototype.search = function() {
     for(var i = this.y - 1; i < this.y + 2; i++) {
         for(var j = this.x - 1; j < this.x + 2; j++) {
             if(i >= 0 && i <= 9 && j >= 0 && j <= 19) {// исключаем границы карты
+                var object = Actors[j + "_" + i];
+
                 if(this.hungry) {
                     if(BackMap[i][j] == 2) {
                         if(i == this.y && j == this.x) {
                             this.food.push({x: j, y: i, steps: 0});
-                        } else if(Actors[j + "_" + i] == null) {
+                        } else if(object == null) {
                             this.food.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});
                         }
                     }
@@ -21,22 +23,19 @@ Rabbit.prototype.search = function() {
                     }
                 } else if(this.inLove) {
                     if(this.name == "Rabbit Man") {
-                        if(Actors[j + "_" + i] != null &&
-                           Actors[j + "_" + i].name == "Rabbit Woman" &&
-                           Actors[j + "_" + i].inLove) {
+                        if(object != null && object.name == "Rabbit Woman" &&
+                           object.inLove) {
                                this.fans.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});
                         }
 
-                        if(count % 2 == 0 && BackMap[i][j] < 3 &&
-                          (Actors[j + "_" + i] == null ||
-                           (Actors[j + "_" + i].name == "Rabbit Woman" &&
-                           Actors[j + "_" + i].inLove))) {
+                        if(count % 2 == 0 && BackMap[i][j] < 3 && (object == null ||
+                          (object.name == "Rabbit Woman" && object.inLove))) {
                                this.freeCells.push({x: j, y: i});
                         }
                     } else {
                         if(count % 2 == 0 && BackMap[i][j] < 3 &&
-                          (Actors[j + "_" + i] == null ||
-                           Actors[j + "_" + i].name == "Rabbit Man")) {
+                          (object == null || (object.name == "Rabbit Man" &&
+                           object.inLove))) {
                                this.freeCells.push({x: j, y: i});
                         }
                     }
@@ -56,36 +55,33 @@ Volf.prototype.search = function() {
     for(var i = this.y - 1; i < this.y + 2; i++) {
         for(var j = this.x - 1; j < this.x + 2; j++) {
             if(i >= 0 && i <= 9 && j >= 0 && j <= 19) {// исключаем границы карты
+                var object = Actors[j + "_" + i];
                 if(this.hungry) {
-                    if(Actors[j + "_" + i] != null &&
-                      (Actors[j + "_" + i].name.indexOf("Rabbit") > -1)) {
+                    if(object != null && (object.name.indexOf("Rabbit") > -1)) {
                         this.food.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});// добовляем в массив найденую еду
                     }
 
                     if(count % 2 == 0 && BackMap[i][j] < 3) {
-                          if(Actors[j + "_" + i] == null ||
-                             Actors[j + "_" + i].name.indexOf("Rabbit") > -1) {
+                          if(object == null || object.name.indexOf("Rabbit") > -1) {
                               this.freeCells.push({x: j, y: i});
                           }
                     }
                 } else if(this.inLove) {
                     if(this.name == "Volf Man") {
-                        if(Actors[j + "_" + i] != null &&
-                           Actors[j + "_" + i].name == "Volf Woman" &&
-                           Actors[j + "_" + i].inLove) {
+                        if(object != null && object.name == "Volf Woman" &&
+                           object.inLove) {
                                this.fans.push({x: j, y: i, steps: Math.abs(this.x - j) + Math.abs(this.y - i)});
                         }
 
                         if(count % 2 == 0 && BackMap[i][j] < 3 &&
-                          (Actors[j + "_" + i] == null ||
-                          (Actors[j + "_" + i].name == "Volf Woman" &&
-                           Actors[j + "_" + i].inLove))) {
+                          (object == null || (object.name == "Volf Woman" &&
+                           object.inLove))) {
                                this.freeCells.push({x: j, y: i});
                         }
                     } else {
                         if(count % 2 == 0 && BackMap[i][j] < 3 &&
-                          (Actors[j + "_" + i] == null ||
-                           Actors[j + "_" + i].name == "Volf Man")) {
+                          (object == null || (object.name == "Volf Man" &&
+                           object.inLove))) {
                                this.freeCells.push({x: j, y: i});
                         }
                     }
@@ -98,9 +94,9 @@ Volf.prototype.search = function() {
 }
 
 function stepToFood() {
-    if(this.freeCells[0] == undefined) {
+    if(this.freeCells.length < 1) {
         return {x: 0, y: 0};
-    } else if(this.food[0] == undefined) {
+    } else if(this.food.length < 1) {
         var cell = Math.floor(Math.random() * this.freeCells.length);
         return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
     } else {
@@ -159,7 +155,7 @@ function stepToFood() {
 
 function stepToLove() {
     if(this.name.indexOf("Woman") > -1) {
-        if(this.freeCells[0] == undefined) {
+        if(this.freeCells.length < 1) {
             return {x: 0, y: 0};
         } else {
             for(var cell in this.freeCells) {
@@ -181,9 +177,9 @@ function stepToLove() {
         return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
 
     } else if(this.name == "Rabbit Man" || this.name == "Volf Man") {
-        if(this.freeCells[0] == undefined) {
+        if(this.freeCells.length == 0) {
             return {x: 0, y: 0};
-        } else if(this.fans[0] == undefined) {
+        } else if(this.fans.length == 0) {
             var cell = Math.floor(Math.random() * this.freeCells.length);
             return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
         } else {
@@ -231,6 +227,11 @@ function stepToLove() {
                         continue;
                 }
             }
+            console.log(this);
+            console.log(this.freeCells[0]);
+            console.log(this.fans[0]);
+            var cell = Math.floor(Math.random() * this.freeCells.length);
+            return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
         }
     }
 }
@@ -258,7 +259,7 @@ function move(dir) {
                                 if(k % 2 == 0) {
                                     if(BackMap[i][j] < 2 && Actors[j + "_" + i] == null) {
                                         console.log("Child!! x:" + j + " y:" + i);
-                                        Actors[j + "_" + i] = new Rabbit(Math.random() > 0.5 ? 1: 0, this.id, j, i);
+                                        Actors[j + "_" + i] = new Rabbit(Math.random() > 0.5 ? 1: 0, j, i);
                                     }
                                     numberChild--;
                                 }
@@ -289,9 +290,9 @@ function move(dir) {
                                 if(k % 2 == 0) {
                                     if(BackMap[i][j] < 2 && Actors[j + "_" + i] == null) {
                                         console.log("Child!! x:" + j + " y:" + i);
-                                        Actors[j + "_" + i] = new Volf(Math.random() > 0.5 ? 1: 0, this.id, j, i);
+                                        Actors[j + "_" + i] = new Volf(Math.random() > 0.5 ? 1: 0, j, i);
+                                        numberChild--;
                                     }
-                                    numberChild--;
                                 }
                             }
                         }
@@ -299,13 +300,13 @@ function move(dir) {
                     }
                 }
             } else if(victim.name.indexOf("Rabbit") > -1) {
-                Actors[this.x + "_" + this.y] = null;
                 this.x += dir.x;
                 this.y += dir.y;
                 this.hungry = 0;
                 this.notHungry = 5;
                 this.inLove = 1;
                 Actors[this.x + "_" + this.y] = this;
+                Actors[(this.x - dir.x) + "_" + (this.y - dir.y)] = null;
                 numberRabbits--;
                 numberCreatures--;
             }
@@ -333,7 +334,7 @@ function min(a, b) {
 }
 
 function getDirection(dir) {
-    if(dir.x > 0) {
+    if(dir.x > 0){
         return 2;
     } else if(dir.x < 0) {
         return 4;
@@ -349,7 +350,7 @@ function getDirection(dir) {
 }
 
 function getAttackDirection(dir) {
-    if(dir.x > 0) {
+    if(dir.x > 0){
         return 6;
     } else if(dir.x < 0) {
         return 8;

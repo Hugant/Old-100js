@@ -1,9 +1,8 @@
 
-function Rabbit(sex, parant, x, y) {
+function Rabbit(sex, x, y) {
 	this.id = numberCreatures;
 	this.name = "Rabbit " + (sex ? "Man" : "Woman");
 	this.sex = sex;
-	this.parents = parant;
 	this.age = 120;
 	this.hungry = 0;
 	this.notHungry = 3;
