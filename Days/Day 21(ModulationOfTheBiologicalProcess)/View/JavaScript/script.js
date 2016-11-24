@@ -55,19 +55,29 @@ window.onclick = function gameLoop() {
         }
 
         for(var actor in activeActors) {
+            if(activeActors[actor].name.indexOf("Rabbit") > -1) {
+                activeActors[actor].search();
+                if(activeActors[actor].hungry) {
+                    activeActors[actor].move(activeActors[actor].stepToFood());
+                } else if(activeActors[actor].inLove) {
+                    activeActors[actor].move(activeActors[actor].stepToLove());
+                }
+            }
+        }
 
-
-            activeActors[actor].search();
-            if(activeActors[actor].hungry) {
-                activeActors[actor].move(activeActors[actor].stepToFood());
-            } else if(activeActors[actor].inLove) {
-                activeActors[actor].move(activeActors[actor].stepToLove());
+        for(var actor in activeActors) {
+            if(activeActors[actor].name.indexOf("Volf") > -1) {
+                activeActors[actor].search();
+                if(activeActors[actor].hungry) {
+                    activeActors[actor].move(activeActors[actor].stepToFood());
+                } else if(activeActors[actor].inLove) {
+                    activeActors[actor].move(activeActors[actor].stepToLove());
+                }
             }
         }
         draw.world();
         generateGrass();
         outInfo();
-        //console.log("---------------------------------------------------")
         activeActors = {};
     },1000);
 }

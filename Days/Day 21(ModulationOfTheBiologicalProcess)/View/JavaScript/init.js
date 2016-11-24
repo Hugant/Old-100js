@@ -68,9 +68,13 @@ var init = {
         }
         /*Actors[1 + "_" + 4] = new Volf(1, 1, 4);
         Actors[1 + "_" + 5] = new Volf(0, 1, 5);
+        Actors[2 + "_" + 4] = new Rabbit(1, 2, 4);
+        Actors[2 + "_" + 5] = new Rabbit(0, 2, 5);
         BackMap[5][0] = 3;
         BackMap[4][1] = 2;
-        BackMap[5][1] = 2;*/
+        BackMap[5][1] = 2;
+        BackMap[4][2] = 1;
+        BackMap[5][2] = 1;*/
         /*Actors[3 + "_" + 5] = new Volf(0, 0, 3, 5);
         Actors[2 + "_" + 4] = new Volf(1, 0, 2, 4);*/
     }

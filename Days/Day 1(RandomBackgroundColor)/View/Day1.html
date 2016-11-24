@@ -7,22 +7,20 @@
         <link rel = "stylesheet" href = "Style/Style.css">
         <script src = "JavaScript/RandomColor.js"></script>
     </head>
-    <body id = "body">
+    <body>
         <div class = "center">
-            <div class = "Block"><input id = "RedButton" type = "button" value = "Red" onclick = "redColor();"></div>
-            <div class = "Block"><input id = "YellowButton" type = "button" value = "Yellow" onclick = "yellowColor();"></div>
-            <div class = "Block"><input id = "BlueButton" type = "button" value = "Blue" onclick = "blueColor();"></div>
-            <div class = "Block"><input id = "PinkButton" type = "button" value = "Pink" onclick = "pinkColor();"></div>
+            <div class = "Block"><input id = "RedButton" type = "button" value = "Red" onclick = "setColor(this.value)"></div>
+            <div class = "Block"><input id = "YellowButton" type = "button" value = "Yellow" onclick = "setColor(this.value)"></div>
+            <div class = "Block"><input id = "BlueButton" type = "button" value = "Blue" onclick = "setColor(this.value)"></div>
+            <div class = "Block"><input id = "PinkButton" type = "button" value = "Pink" onclick = "setColor(this.value)"></div>
             <div class = "Block"><input id = "RandButton" type = "button" value = "Random" onclick = "randColor();"></div>
-            <div class = "Block"><input id = "AquaButton" type = "button" value = "Aqua" onclick = "aquaColor();"></div>
-            <div class = "Block"><input id = "OrangeButton" type = "button" value = "Orange" onclick = "orangeColor();"></div>
-            <div class = "Block"><input id = "GreenButton" type = "button" value = "Green" onclick = "greenColor();"></div>
-            <div class = "Block"><input id = "BrownButton" type = "button" value = "Brown" onclick = "brownColor();"></div>
+            <div class = "Block"><input id = "AquaButton" type = "button" value = "Aqua" onclick = "setColor(this.value)"></div>
+            <div class = "Block"><input id = "OrangeButton" type = "button" value = "Orange" onclick = "setColor(this.value)"></div>
+            <div class = "Block"><input id = "GreenButton" type = "button" value = "Green" onclick = "setColor(this.value)"></div>
+            <div class = "Block"><input id = "BrownButton" type = "button" value = "Brown" onclick = "setColor(this.value)"></div>
         </div>
-		
+
 		<a href = "../../../index.html" class = "home">Home</a>
     </body>
 	<script src = "../../../YandexMetrika.js"></script>
 </html>
-
-

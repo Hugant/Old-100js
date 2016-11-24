@@ -18,7 +18,7 @@ Rabbit.prototype.search = function() {
                         }
                     }
 
-                    if(count % 2 == 0 && Actors[j + "_" + i] == null && BackMap[i][j] < 3) {
+                    if(count % 2 == 0 && object === null && BackMap[i][j] < 3) {
                         this.freeCells.push({x: j, y: i});
                     }
                 } else if(this.inLove) {
@@ -227,9 +227,6 @@ function stepToLove() {
                         continue;
                 }
             }
-            console.log(this);
-            console.log(this.freeCells[0]);
-            console.log(this.fans[0]);
             var cell = Math.floor(Math.random() * this.freeCells.length);
             return {x: this.freeCells[cell].x - this.x, y: this.freeCells[cell].y - this.y};
         }
@@ -258,7 +255,6 @@ function move(dir) {
                             if(numberChild > 0) {
                                 if(k % 2 == 0) {
                                     if(BackMap[i][j] < 2 && Actors[j + "_" + i] == null) {
-                                        console.log("Child!! x:" + j + " y:" + i);
                                         Actors[j + "_" + i] = new Rabbit(Math.random() > 0.5 ? 1: 0, j, i);
                                     }
                                     numberChild--;
@@ -289,7 +285,6 @@ function move(dir) {
                             if(numberChild > 0) {
                                 if(k % 2 == 0) {
                                     if(BackMap[i][j] < 2 && Actors[j + "_" + i] == null) {
-                                        console.log("Child!! x:" + j + " y:" + i);
                                         Actors[j + "_" + i] = new Volf(Math.random() > 0.5 ? 1: 0, j, i);
                                         numberChild--;
                                     }

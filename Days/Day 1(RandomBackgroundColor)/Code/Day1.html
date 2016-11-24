@@ -21,25 +21,23 @@
 			<p> Для начала, вам нужно создать кнопки, которые выполняют функции смена фона.</p>
 			<pre>
 				<h2 class = "htmlT">html:</h2>
-				<code class = "html">&lt;input id = "RedButton"    type = "button" value = "Red"    onclick = "redColor()">
-&lt;input id = "YellowButton" type = "button" value = "Yellow" onclick = "yellowColor()">
-&lt;input id = "BlueButton"   type = "button" value = "Blue"   onclick = "blueColor()">
-&lt;input id = "PinkButton"   type = "button" value = "Pink"   onclick = "pinkColor()">
-&lt;input id = "RandButton"   type = "button" value = "Random" onclick = "randColor()">
-&lt;input id = "AquaButton"   type = "button" value = "Aqua"   onclick = "aquaColor()">
-&lt;input id = "OrangeButton" type = "button" value = "Orange" onclick = "orangeColor()">
-&lt;input id = "GreenButton"  type = "button" value = "Green"  onclick = "greenColor()">
-&lt;input id = "BrownButton"  type = "button" value = "Brown"  onclick = "brownColor()"></code>
+				<code class = "html">&lt;input type = "button" value = "Red"    onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Yellow" onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Blue"   onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Pink"   onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Aqua"   onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Orange" onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Green"  onclick = "setColor(this.value)">
+&lt;input type = "button" value = "Brown"  onclick = "setColor(this.value)">
+&lt;input id = "RandButton"   type = "button" value = "Random" onclick = "randColor()"></code>
 			</pre>
-			<p> Главное не забыть присвоить тегу &lt;body> идентификатор id = "body".</p>
-			<br>
-			<p> После вы должны создать функции, которые будут влиять на цвет фона.</p>
+			<p> После вы должны создать функцию, которая будет влиять на цвет фона.</p>
 			<br>
 			<p> С помощью следующего метода вы получаете доступ к элементу по идентификатору:
 			<pre>
 				<code class = "javascript">document.getElementById("идентификатор")</code>
 			</pre>
-			<p> С помощью следующего метода вы получаете доступ к стилям элемента:</p>
+			<p> Если обратиться к свойству style предедущего метода, тогда можно получить стили элемента :</p>
 			<pre>
 				<code class = "javascript">document.getElementById("идентификатор").style</code>
 			</pre>

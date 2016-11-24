@@ -1,18 +1,15 @@
-*
-{
+* {
 	outline: none;
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
-body
-{
+body {
     background-color: white;
 }
 
-.home
-{
+.home {
 	position: absolute;
 	right: 2%;
 	bottom: 2%;
@@ -27,19 +24,16 @@ body
 	text-decoration: none;
 }
 
-.home:hover
-{
+.home:hover {
     border-color: black;
 	cursor: pointer;
 }
 
-.home:active
-{
+.home:active {
 	background: black;
 }
 
-.center
-{
+.center {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -48,56 +42,46 @@ body
 	margin-top: -270px;
 }
 
-.Block
-{
+.Block {
 	display: inline-block;
 	width: 200px;
     height: 30px;
     margin-bottom: 150px;
 }
 
-#RedButton
-{
+#RedButton {
     background: red;
 }
 
-#YellowButton
-{
+#YellowButton {
     background: Yellow;
 }
 
-#BlueButton
-{
+#BlueButton {
     background: Blue;
 }
 
-#PinkButton
-{
+#PinkButton {
     background: Pink;
 }
 
-#AquaButton
-{
+#AquaButton {
     background: Aqua;
 }
 
-#OrangeButton
-{
+#OrangeButton {
     background: Orange;
 }
 
-#GreenButton
-{
+#GreenButton {
     background: Green;
 }
 
-#BrownButton
-{
+#BrownButton {
     background-color: brown;
 }
 
-input
-{
+input {
     color: white;
 	width: 150px;
     text-align: center;
@@ -107,7 +91,6 @@ input
     padding: 10px 20px;
 }
 
-input:hover
-{
+input:hover {
     border-color: black;
 }
