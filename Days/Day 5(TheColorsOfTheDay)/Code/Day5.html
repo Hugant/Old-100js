@@ -41,21 +41,18 @@
 			<p> Добавим стили</p>
 			<pre>
 				<h2 class = "cssT">CSS:</h2>
-				<code class = "css">h1
-{
+				<code class = "css">h1 {
     font-size: 50px;
     text-align: center;
     color:white;
     text-shadow: -1px -1px 1px rgba(0,0,0,0.6);
 }
 
-.color, .time
-{
+.color, .time {
     text-align:center;
 }
 
-.timer
-{
+.timer {
     display: inline;
     text-align: center;
     color: white;
@@ -88,8 +85,7 @@ var hours = time.getHours();</code>
 			<h2> Теперь мы можем написать основную функцию.</h2>
 			<pre>
 				<h2 class = "jsT">JavaScript:</h2>
-				<code class = "javascript">function time()
-{
+				<code class = "javascript">function time() {
     var time = new Date();
     var hours = time.getHours();// получаем часы
     var minutes = time.getMinutes();// получаем минуты
@@ -118,8 +114,7 @@ var hours = time.getHours();</code>
 			<p> Они нужны для корректного вывода чисел и цвета.</p>
 			<p> К примеру, если число меньше 10, тогда к нему добавить нуль в начале числа: 01, 04, 05.</p>
 			<pre>
-				<code class = "javascript">function CheckTime(time)
-{
+				<code class = "javascript">function CheckTime(time) {
     if(time < 10)
         time = "0" + time;
     return time;
@@ -127,8 +122,7 @@ var hours = time.getHours();</code>
 			</pre>
 			<p> То же самое с цветом, если количество символов меньше 2, добавляем нуль: 0A, 03, 0F.</p>
 			<pre>
-				<code class = "javascript">function CheckColor(color)
-{
+				<code class = "javascript">function CheckColor(color) {
     if(color.length < 2)
         color = "0" + color;
     return color;

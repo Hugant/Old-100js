@@ -37,7 +37,7 @@
 			<pre>
 				<code class = "javascript">document.getElementById("идентификатор")</code>
 			</pre>
-			<p> Если обратиться к свойству style предедущего метода, тогда можно получить стили элемента :</p>
+			<p> Если обратиться к свойству style предыдущего метода, тогда можно получить стили элемента :</p>
 			<pre>
 				<code class = "javascript">document.getElementById("идентификатор").style</code>
 			</pre>
@@ -55,43 +55,33 @@ document.getElementById("идентификатор").style.fontSize "24px";// �
 			</ul>
 			<br>
 			<br>
+			<p> Чтобы получить свойства элемента body достаточно написать следующее: </p>
+			<pre>
+				<code class = "javascript">document.body.style</code>
+			</pre>
+			<br>
 			<h2>Перейдем к скрипту</h2>
 			<br>
-			<p> Функции, которые изменяют цвет фона на опеределенный цвет, очень просты.</p>
+			<p> Функция, которая изменяет цвет фона на опеределенный цвет, очень проста.</p>
+			<p> Мы должны узнать какое значение у нашей кнопки(Red, Green, Yellow) и присвоить это значение цвету фона.</p>
 			<pre>
 				<h2 class = "jsT">JavaScript:</h2>
-				<code class = "javascript">function redColor() {
-    document.getElementById("body").style.background = "red";
-}
-
-function yellowColor() {
-    document.getElementById("body").style.background = "yellow";
-}
-
-function blueColor() {
-    document.getElementById("body").style.background = "blue";
-}
-
-function pinkColor() {
-    document.getElementById("body").style.background = "pink";
-}
-
-function aquaColor() {
-    document.getElementById("body").style.background = "aqua";
-}
-
-function orangeColor() {
-    document.getElementById("body").style.background = "orange";
-}
-
-function greenColor() {
-    document.getElementById("body").style.background = "green";
-}
-
-function brownColor() {
-    document.getElementById("body").style.background = "brown";
+				<code class = "javascript">function setColor(color) {// В переменной color записан текущий цвет
+    document.body.style.background = color;// присваиваем этот цвет
 }</code>
 			</pre>
+			<p> Вы наверное задались вопросом, что это за странная передача значения: this.value.</p>
+			<p> Ключевое слово this ссылается на родителя или глобальный объект.</p>
+			<p> В данный момент this возвращает следующее: </p>
+			<pre>
+				<code class = "html">&lt;input id="RedButton" type="button" value="Red" onclick="setColor(this.value)"></code>
+			</pre>
+			<p> Теперь мы можем обратиться к свойству value.</p>
+			<p> Вот что возвращает this.value: </p>
+			<pre>
+				<code>Red</code>
+			</pre>
+			<br>
 			<p> Ситуация меняется при создании кнопки, которая задает случайный цвет фона.</p>
 			<br>
 			<p> Метод Math.random() возвращает от 0(включительно) до 1.</p>
@@ -133,6 +123,7 @@ function brownColor() {
 			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank">Math.round()</a></p>
 			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></p>
 			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function" target = "_blank">function()</a></p>
+			<p><a href = "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/this" target = "_blank">this</a</p>
 		</div>
 		<a href = "../../../index.html" class = "home test">Home</a>
 		<footer>

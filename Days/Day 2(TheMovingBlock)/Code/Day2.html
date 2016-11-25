@@ -34,8 +34,7 @@
 			<p> Только не забудьте расположить его в центре экрана.</p>
 			<pre>
 				<h2 class = "cssT">CSS:</h2>
-				<code class = "css">#block
-{
+				<code class = "css">#block {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -58,30 +57,25 @@
 				<h2 class = "jsT">JavaScript:</h2>
 				<code class = "javascript">var marginTop = -100;// Отступ сверху
 var marginLeft = -100;// Отступ слева
-function Up()
-{
+function Up() {
     document.getElementById("block").style.marginTop = marginTop - 20 + "px";// Неявное преобразование из числа в строку
     marginTop = marginTop - 20;
 }
 
-function Down()
-{
+function Down() {
     document.getElementById("block").style.marginTop = marginTop + 20 + "px";
     marginTop = marginTop + 20;
 }
 
-function Left()
-{
+function Left() {
     document.getElementById("block").style.marginLeft = marginLeft - 20 + "px";
     marginLeft = marginLeft - 20;
 }
 
-function Right()
-{
+function Right() {
     document.getElementById("block").style.marginLeft = marginLeft + 20 + "px";
     marginLeft = marginLeft + 20;
 }</code>
-
 		</pre>
 		<p> Но наш блок не имеет ограничений и может улететь очень далеко.</p>
 		<p> Введем ограничение.</p>
@@ -89,37 +83,29 @@ function Right()
 			<h2 class = "jsT">JavaScript:</h2>
 			<code class = "javascript">var marginTop = -100;
 var marginLeft = -100;
-function Up()
-{
-    if(marginTop > -360)
-    {
+function Up() {
+    if(marginTop > -360) {
         document.getElementById("block").style.marginTop = marginTop - 20 + "px";
         marginTop = marginTop - 20;
     }
 }
 
-function Down()
-{
-    if(marginTop < 260)
-    {
+function Down() {
+    if(marginTop < 260) {
         document.getElementById("block").style.marginTop = marginTop + 20 + "px";
         marginTop = marginTop + 20;
     }
 }
 
-function Left()
-{
-    if(marginLeft > -360)
-    {
+function Left() {
+    if(marginLeft > -360) {
        document.getElementById("block").style.marginLeft = marginLeft - 20 + "px";
        marginLeft = marginLeft - 20;
     }
 }
 
-function Right()
-{
-    if(marginLeft < 260)
-    {
+function Right() {
+    if(marginLeft < 260) {
         document.getElementById("block").style.marginLeft = marginLeft + 20 + "px";
         marginLeft = marginLeft + 20;
     }

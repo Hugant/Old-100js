@@ -32,8 +32,7 @@
 			<p>Не забываем про CSS</p>
 			<pre>
 				<h2 class = "cssT">CSS:</h2>
-				<code class = "css">body
-{
+				<code class = "css">body {
     background-color: white;
     transition-duration: 2s;/* для плавного перехода */
 }</code>
@@ -102,7 +101,7 @@ function TravelByColor() {
 			<pre>
 				<h2 class = "jsT">JavaScript:</h2>
 				<code>function GoToColor(redF, greenF, blueF, redS, greenS, blueS, firstValue, secondValue) {
-    if(firstValue == secondValue) {        // если равные, тогда просто присваеваем это цвет фону
+    if(firstValue == secondValue) {        // если равные, тогда просто присваиваем это цвет фону
     	firstValue = firstValue.toString(16);
     	document.getElementById("body").style.background = "#" + firstValue;
     } else {
@@ -120,7 +119,7 @@ function TravelByColor() {
 
             document.getElementById("body").style.background = "#" + redF + greenF + blueF;// меняем фон
 
-            redF = parseInt(redF, 16);// переводим обратно в hex, для того чтобы могли производить арефметические операции
+            redF = parseInt(redF, 16);// переводим обратно в hex, для того чтобы могли производить арифметические операции
             greenF = parseInt(greenF, 16);
             blueF = parseInt(blueF, 16);
         }, 200);

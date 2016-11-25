@@ -29,8 +29,7 @@
 			<p>Прячем картинку BANG.</p>
 			<pre>
 				<h2 class = "cssT">CSS:</h2>
-				<code class = "css">#banImg
-{
+				<code class = "css">#banImg {
     display: none;
     /* ваши стили */
 }</code>
@@ -58,13 +57,13 @@ var bang = function() {
     if(!count) { // если не было выстрела перед нажатием
         var random = Math.round(Math.random() * 6 + 1);// рандомим число от 1 до 6
         if(random == 1) {
-            count = 1;//был высрел
-            shot.stop();// остоновка воспроизведение звукового файла
+            count = 1;//был выстрел
+            shot.stop();// остановка воспроизведение звукового файла
             shot.play();// воспроизведение
             document.getElementById("bangImg").style.display = "block";// показываем картинку BANG
 
         } else {
-            notShot.stop();// остоновка воспроизведение звукового файла
+            notShot.stop();// остановка воспроизведение звукового файла
             notShot.play();// воспроизведение
         }
     } else {
