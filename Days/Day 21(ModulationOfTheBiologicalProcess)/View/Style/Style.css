@@ -1,81 +1,91 @@
-body
-{
+body {
     background: black;
     -webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     cursor: default;
 }
 
-#title
-{
+#title {
     color: white;
     text-align: center;
     font-size: 50px;
     font-weight: 500;
-    font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
-#center
-{
+#center {
     width: 960px;
     margin: 0 auto;
 }
 
-#canvas
-{
+#canvas {
     width: 960px;
     height: 480px;
     border-radius: 5px;
 }
 
-#info
-{
+#chartSection {
+    width: 750px;
+    margin: 50px auto;
+}
+
+#chart {
+    width: 750px;
+    height: 400px;
+    border: 1px solid white;
+}
+
+#info {
     width: 1050px;
     margin: 20px auto;
 }
 
-#info div
-{
+#info div {
     display: inline-block;
     width: 330px;
     color: white;
-    font-family:"Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     text-align: center;
     font-size: 30px;
-
 }
 
-#info div:first-child
-{
+#info div:first-child {
     margin-right: 20px;
     margin-left: 30px;
 }
 
-#info div span
-{
+#info div span {
     color: lightblue;
 }
 
-
-#loadImages img
-{
+#loadImages img {
     display: none;
 }
 
-.home
-{
+.home {
     top: 20px;
     right: 20px;
 }
 
-.home:hover
-{
+#getChartSection {
+    width: 150px;
+    margin: 40px auto;
+}
+
+#getChart {
+    position: static;
+    outline: none;
+    cursor: pointer;
+}
+
+.home:hover,
+#getChart:hover {
     border-color: red;
 }
 
-.home:active
-{
+.home:active,
+#getChart:active {
     background: white;
     border-color: white;
     color: black;

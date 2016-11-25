@@ -20,11 +20,11 @@ window.onload = function() {
     document.getElementById("outC").innerHTML = numberCreatures;
     document.getElementById("outR").innerHTML = numberRabbits;
     document.getElementById("outV").innerHTML = numberVolfs;
-    gameLoop();
+    //gameLoop();
 }
 
 var activeActors = {};
-window.onclick = function gameLoop() {
+function gameLoop() {
     id = setInterval(function () {
 
 
