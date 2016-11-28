@@ -49,6 +49,7 @@ days.push(new Block("Solve my", "barley-break", "SolveMyBarley-break"));
 days.push(new Block("Roguelike", "game", "RoguelikeGame"));
 days.push(new Block("The modulation","of flying ball","TheModulationOfFlyingBall"));
 days.push(new Block("Modulation of the","biological process","ModulationOfTheBiologicalProcess"));
+days.push(new Block("Musical","tiles","MusicalTiles"));
 //end of the Day list
 
 

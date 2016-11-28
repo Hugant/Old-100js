@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+}
+
+body {
+    background: black;
+    padding: 30px;
+}
+
+#title {
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.tiles {
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+    background: lightblue;
+}
+
+.tiles .letter {
+    width: inherit;
+    height: inherit;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.home {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.home:hover {
+    border-color: red;
+    cursor: pointer;
+}
+
+.home:active {
+    background: white;
+    color: black;
+    border-color: white;
+}
