@@ -10,6 +10,7 @@ var COLS = 20;// количество столбцов карты
 
 var BackMap;// карта
 var Actors = {};// волки, зайцы
+var ChartData = [];
 
 var numberRabbits = 0;// общее количество зайцев
 var numberVolfs = 0;// общее количество волков
@@ -20,14 +21,31 @@ window.onload = function() {
     document.getElementById("outC").innerHTML = numberCreatures;
     document.getElementById("outR").innerHTML = numberRabbits;
     document.getElementById("outV").innerHTML = numberVolfs;
-    //gameLoop();
+    ChartData.push({c: numberCreatures, r: numberRabbits, v: numberVolfs});
+    gameLoop();
+}
+
+document.getElementById("refresh").onclick = function() {
+    clearInterval(id);
+    for(var actor in Actors) {
+        Actors[actor] = null;
+    }
+    ChartData.splice(0, ChartData.length);
+    numberRabbits = 0;
+    numberVolfs = 0;
+    numberCreatures = 0;
+
+    init.world();// генерируем мир
+    document.getElementById("outC").innerHTML = numberCreatures;
+    document.getElementById("outR").innerHTML = numberRabbits;
+    document.getElementById("outV").innerHTML = numberVolfs;
+    ChartData.push({c: numberCreatures, r: numberRabbits, v: numberVolfs});
+    gameLoop();
 }
 
 var activeActors = {};
 function gameLoop() {
     id = setInterval(function () {
-
-
         for(var actor in Actors) {
             if(Actors[actor] != null) {
                 if(Actors[actor].age <= 0) {
@@ -79,6 +97,8 @@ function gameLoop() {
         generateGrass();
         outInfo();
         activeActors = {};
+
+        ChartData.push({c: numberCreatures, r: numberRabbits, v: numberVolfs});
     },1000);
 }
 

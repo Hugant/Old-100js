@@ -4,38 +4,30 @@ var Cctx = chart.getContext("2d");
 chart.width = 750;
 chart.height = 400;
 
-var graph = {
-    1: {c: 12, r: 4, v: 8},
-    2: {c: 13, r: 5, v: 8},
-    3: {c: 11, r: 4, v: 7},
-    4: {c: 19, r: 10, v: 9},
-    6: {c: 14, r: 9, v: 8},
-    7: {c: 11, r: 9, v: 8},
-    8: {c: 15, r: 9, v: 8},
-    9: {c: 13, r: 9, v: 8},
-    10: {c: 16, r: 9, v: 8},
-    11: {c: 19, r: 9, v: 8},
-    12: {c: 1, r: 9, v: 8},
-    13: {c: 14, r: 9, v: 8},
-    14: {c: 18, r: 9, v: 8},
-    15: {c: 20, r: 5, v: 8}
-};
+var lengthOX = chart.width - 90;
+var lengthOY = chart.height - 70;
 
-var lengthOX = 660;
-var lengthOY = 330;
 var start = {
     x: 40.5,
-    y: 370.5
+    y: chart.height - (chart.height - 370.5)
 };
 
 var endOY = start.y - lengthOY;
 var endOX = start.x + lengthOX;
 
-var numberDividingX = Object.keys(graph).length;
-var numberDividingY = getMax(graph);
+var numberDividingY;
+var numberDividingX;
 
-var stepX = Math.floor(lengthOX / numberDividingX) + 0.5;
-var stepY = Math.floor(lengthOY / numberDividingY) + 0.5;
+var stepY;
+var stepX;
+
+function getData() {
+    numberDividingX = ChartData.length;
+    numberDividingY = getMax(ChartData);
+
+    stepX = Math.floor(lengthOX / numberDividingX) + 0.5;
+    stepY = Math.floor(lengthOY / numberDividingY) + 0.5;
+}
 
 function drawAxis() {
     Cctx.strokeStyle = "white";
@@ -74,23 +66,47 @@ function drawDividing() {
     Cctx.stroke();
 }
 
-function drawLines() {
-    Cctx.strokeStyle = "lightgreen";
+function drawCreatures() {
+    Cctx.strokeStyle = "green";
     Cctx.beginPath();
-    for(var dot in graph) {
-        if(graph[dot + 1] != null) {
-            Cctx.moveTo(dot * stepX + start.x, graph[dot].c * stepY / 2);
-            Cctx.lineTo((dot + 1) * stepX + start.x, graph[dot + 1].c * stepY / 2);
-        }
+    Cctx.moveTo(start.x, start.y);
+    for(var dot in ChartData) {
+        Cctx.lineTo(dot * stepX + start.x, chart.height - (chart.height - start.y) - ChartData[dot].c * stepY);
+        Cctx.moveTo(dot * stepX + start.x, chart.height - (chart.height - start.y) - ChartData[dot].c * stepY);
     }
     Cctx.closePath();
     Cctx.stroke();
 }
 
-drawAxis();
-drawDividing();
-drawLines();
+function drawRabbits() {
+    Cctx.strokeStyle = "blue";
+    Cctx.beginPath();
+    Cctx.moveTo(start.x, start.y);
+    for(var dot in ChartData) {
+        Cctx.lineTo(dot * stepX + start.x, chart.height - (chart.height - start.y) - ChartData[dot].r * stepY);
+        Cctx.moveTo(dot * stepX + start.x, chart.height - (chart.height - start.y) - ChartData[dot].r * stepY);
+    }
+    Cctx.closePath();
+    Cctx.stroke();
+}
 
+function drawVolfs() {
+    Cctx.strokeStyle = "red";
+    Cctx.beginPath();
+    Cctx.moveTo(start.x, start.y);
+    for(var dot in ChartData) {
+        Cctx.lineTo(dot * stepX + start.x, chart.height - (chart.height - start.y) - ChartData[dot].v * stepY);
+        Cctx.moveTo(dot * stepX + start.x, chart.height - (chart.height - start.y) - ChartData[dot].v * stepY);
+    }
+    Cctx.closePath();
+    Cctx.stroke();
+}
+
+function drawLines() {
+    drawCreatures();
+    drawRabbits();
+    drawVolfs();
+}
 
 function getMax(graph) {
     var max = 0;
@@ -99,4 +115,15 @@ function getMax(graph) {
             max = graph[d].c;
     }
     return max;
+}
+
+
+
+document.getElementById("getChart").onclick = function() {
+    document.getElementById("chart").style.display = "block";
+    Cctx.clearRect(0, 0, canvas.width, canvas.height);
+    getData();
+    drawAxis();
+    drawDividing();
+    drawLines();
 }

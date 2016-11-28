@@ -31,6 +31,7 @@ body {
 }
 
 #chart {
+    display: none;
     width: 750px;
     height: 400px;
     border: 1px solid white;
@@ -68,8 +69,8 @@ body {
     right: 20px;
 }
 
-#getChartSection {
-    width: 150px;
+#buttonsSection {
+    width: 450px;
     margin: 40px auto;
 }
 
@@ -79,13 +80,22 @@ body {
     cursor: pointer;
 }
 
+#refresh {
+    position: static;
+    outline: none;
+    cursor: pointer;
+    margin-left: 200px;
+}
+
 .home:hover,
-#getChart:hover {
+#getChart:hover,
+#refresh:hover {
     border-color: red;
 }
 
 .home:active,
-#getChart:active {
+#getChart:active,
+#refresh:active {
     background: white;
     border-color: white;
     color: black;
