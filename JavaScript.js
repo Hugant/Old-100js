@@ -50,6 +50,7 @@ days.push(new Block("Roguelike", "game", "RoguelikeGame"));
 days.push(new Block("The modulation","of flying ball","TheModulationOfFlyingBall"));
 days.push(new Block("Modulation of the","biological process","ModulationOfTheBiologicalProcess"));
 days.push(new Block("Musical","tiles","MusicalTiles"));
+days.push(new Block("Find the","number PI","FindTheNumberPI"));
 //end of the Day list
 
 
