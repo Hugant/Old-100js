@@ -7,6 +7,7 @@ canvas.height = 400;
 var center = canvas.width / 2;
 var numberDots = 0;
 var numberDotsInCircle = 0;
+var radius = 1;
 
 drawCircle();
 
@@ -17,15 +18,15 @@ document.getElementById("random").onclick = function() {
         context.clearRect(0, 0, canvas.width, canvas.height);
         drawCircle();
         for(var i = 0; i < numberDots; i++) {
-            x = Math.floor(Math.random() * canvas.width + 1);
-            y = Math.floor(Math.random() * canvas.height + 1);
-            drawDot(x, y);
-            if(x * x + y * y >= center * center) {
+            x = Math.random();
+            y = Math.random();
+            drawDot(Math.floor(x * canvas.width), Math.floor(y * canvas.height));
+            if(x * x + y * y <= radius * radius) {
                 numberDotsInCircle++;
             }
         }
     }
-    document.getElementById("PI").innerHTML = /*(400 * 400) / ((Math.PI * (center * center)) / 2)*/(numberDotsInCircle * 4) / numberDots;
+    document.getElementById("PI").innerHTML = (numberDotsInCircle * 4) / numberDots;
 }
 
 function getData() {
