@@ -21,22 +21,151 @@ body {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
-.tiles {
-    width: 100px;
-    height: 100px;
-    margin: 15px;
-    background: lightblue;
+#tiles {
+    width: 1100px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.tiles .letter {
-    width: inherit;
-    height: inherit;
-    display: table-cell;
-    vertical-align: middle;
+#firstLine,
+#secondLine,
+#thirdLine {
+    height: 72px;
+    margin-bottom: 3px;
+}
+
+#firstLine div,
+#secondLine div,
+#thirdLine div,
+#fourthLine div {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: blue;
+    margin: 1px;
+    font-size: 16pt;
+    font-family: AppleGothic, sans-serif;
+    color: black;
+    font-weight: 600;
     text-align: center;
-    font-size: 30px;
+    line-height: 70px;
+    border-radius: 10px;
 }
 
+#firstLine #backspace,
+#secondLine #tab {
+    width: 100px;
+    background: lightgrey;
+    color: grey;
+}
+
+#thirdLine #capsLock,
+#thirdLine #enter {
+    width: 123px;
+    background: lightgrey;
+    color: grey;
+}
+
+#fourthLine #leftShift,
+#fourthLine #rightShift {
+    width: 161px;
+    background: lightgrey;
+    color: grey;
+}
+
+#firstLine #backspace:hover,
+#secondLine #tab:hover,
+#thirdLine #capsLock:hover,
+#thirdLine #enter:hover,
+#fourthLine #leftShift:hover,
+#fourthLine #rightShift:hover {
+    background: #D8D8D8;
+    cursor: pointer;
+}
+
+#firstLine #backspace:active,
+#secondLine #tab:active,
+#thirdLine #capsLock:active,
+#thirdLine #enter:active,
+#fourthLine #leftShift:active,
+#fourthLine #rightShift:active {
+    background: #A6A6A6;
+}
+
+#tiles .pinky {
+    background: #AD7EA8;
+}
+
+#tiles .pinky:hover {
+    background: #D6AAD1;
+    cursor: pointer;
+}
+
+#tiles .pinky:active {
+    background: #82677F;
+}
+
+
+
+#tiles .ringFinger {
+    background: #739FD0;
+}
+
+#tiles .ringFinger:hover {
+    background: #9ABFE8;
+    cursor: pointer;
+}
+
+#tiles .ringFinger:active {
+    background: #68809C;
+}
+
+
+
+#tiles .middleFinger {
+    background: #73D216;
+}
+
+#tiles .middleFinger:hover {
+    background: #99E94C;
+    cursor: pointer;
+}
+
+#tiles .middleFinger:active {
+    background: #679E34;
+}
+
+
+
+#tiles .leftIndexFinger {
+    background: #FCAE3F;
+}
+
+#tiles .leftIndexFinger:hover {
+    background: #FEC26F;
+    cursor: pointer;
+}
+
+#tiles .leftIndexFinger:active {
+    background: #BD9153;
+}
+
+
+
+#tiles .rightIndexFinger {
+    background: #FCE94F;
+}
+
+#tiles .rightIndexFinger:hover {
+    background: #FEF07B;
+    cursor: pointer;
+}
+
+#tiles .rightIndexFinger:active {
+    background: #BDB35C;
+}
 
 .home {
     position: absolute;
