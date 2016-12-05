@@ -1,6 +1,13 @@
-var long1 = new Audio("Music/long/q.mid");
+var long1 = new Audio("Music/long/tilda.wav");
 var long2 = new Audio("Music/long/1.wav");
 var long3 = new Audio("Music/long/q.wav");
+var long4 = new Audio("Music/long/a.wav");
+var long5 = new Audio("Music/long/z.wav");
+var long6 = new Audio("Music/long/0.wav");
+var long7 = new Audio("Music/long/p.wav");
+var long8 = new Audio("Music/long/semicolon.wav");
+var long9 = new Audio("Music/long/dot.wav");
+var long10 = new Audio("Music/long/dash.wav");
 
 var kit1 = new Audio("Music/kits/4.wav");
 var kit2 = new Audio("Music/kits/5.wav");
@@ -14,6 +21,10 @@ var kit9 = new Audio("Music/kits/6.wav");
 var kit10 = new Audio("Music/kits/7.wav");
 var kit11 = new Audio("Music/kits/y.wav");
 var kit12 = new Audio("Music/kits/u.wav");
+var kit13 = new Audio("Music/kits/h.wav");
+var kit14 = new Audio("Music/kits/j.wav");
+var kit15 = new Audio("Music/kits/n.wav");
+var kit16 = new Audio("Music/kits/m.wav");
 
 
 
@@ -30,8 +41,8 @@ var keys = {
     "enter": 13,
     "shift": 16,
     "capslock": 20,
-    "0": 48,
-    "1": 49,
+    "48": long6,
+    "49": long2,
     "2": 50,
     "3": 51,
     "52": kit1,
@@ -40,23 +51,23 @@ var keys = {
     "55": kit10,
     "8": 56,
     "9": 57,
-    "65": fit8,
+    "65": long4,
     "66": kit8,
     "c": 67,
     "d": 68,
     "e": 69,
     "70": kit5,
     "71": kit6,
-    "h": 72,
+    "72": kit13,
     "i": 73,
-    "j": 74,
+    "74": kit14,
     "k": 75,
     "l": 76,
-    "m": 77,
-    "n": 78,
+    "77": kit16,
+    "78": kit15,
     "o": 79,
-    "p": 80,
-    "q": 81,
+    "80": long7,
+    "81": long3,
     "82": kit3,
     "s": 83,
     "84": kit4,
@@ -65,14 +76,14 @@ var keys = {
     "w": 87,
     "x": 88,
     "89": kit11,
-    "z": 90,
-    ";": 186,
+    "90": long5,
+    "186": long8,
     "=": 187,
     ",": 188,
-    "-": 189,
-    ".": 190,
-    "/": 191,
-    "`": 192,
+    "189": long10,
+    ".": 123,
+    "191": long9,
+    "192": long1,
     "[": 219,
     "\\": 220,
     "]": 221,
@@ -82,55 +93,17 @@ window.onload = function() {
     window.onkeyup = function(e) {
         keys[e.keyCode].stop();
     	keys[e.keyCode].play();
+        document.getElementById("" + e.key.toLowerCase()).style.opacity = "1";
     };
 
-    document.getElementById("four").onmousedown = function() {
-        kit1.stop();
-        kit1.play();
+    window.onkeydown = function(e) {
+        document.getElementById("" + e.key.toLowerCase()).style.opacity = "0.60";
     }
-    document.getElementById("five").onmousedown = function() {
-        kit2.stop();
-        kit2.play();
-    }
-    document.getElementById("r").onmousedown = function() {
-        kit3.stop();
-        kit3.play();
-    }
-    document.getElementById("t").onmousedown = function() {
-        kit4.stop();
-        kit4.play();
-    }
-    document.getElementById("f").onmousedown = function() {
-        kit5.stop();
-        kit5.play();
-    }
-    document.getElementById("g").onmousedown = function() {
-        kit6.stop();
-        kit6.play();
-    }
-    document.getElementById("v").onmousedown = function() {
-        kit7.stop();
-        kit7.play();
-    }
-    document.getElementById("b").onmousedown = function() {
-        kit8.stop();
-        kit8.play();
-    }
-    document.getElementById("six").onmousedown = function() {
-        kit9.stop();
-        kit9.play();
-    }
-    document.getElementById("seven").onmousedown = function() {
-        kit10.stop();
-        kit10.play();
-    }
-    document.getElementById("y").onmousedown = function() {
-        kit11.stop();
-        kit11.play();
-    }
-    document.getElementById("u").onmousedown = function() {
-        kit12.stop();
-        kit12.play();
+}
+
+function getKeyCode(key) {
+    switch(key) {
+        case 1:
     }
 }
 

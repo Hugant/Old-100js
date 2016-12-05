@@ -167,6 +167,10 @@ body {
     background: #BDB35C;
 }
 
+.press {
+    background: black;
+}
+
 .home {
     position: absolute;
     top: 20px;
