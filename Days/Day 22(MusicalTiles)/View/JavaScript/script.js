@@ -25,15 +25,11 @@ var kit13 = new Audio("Music/kits/h.wav");
 var kit14 = new Audio("Music/kits/j.wav");
 var kit15 = new Audio("Music/kits/n.wav");
 var kit16 = new Audio("Music/kits/m.wav");
-
-
-
-var fit4 = new Audio("Music/3 (2).wav");
-var fit5 = new Audio("Music/3 (3).wav");
-var fit6 = new Audio("Music/3 (4).wav");
-var fit7 = new Audio("Music/3 (5).wav");
-var fit8 = new Audio("Music/3 (6).wav");
-var voc = new Audio("Music/10.wav")
+var kit17 = new Audio("Music/kits/equal.wav");
+var kit18 = new Audio("Music/kits/quotes.wav");
+var kit19 = new Audio("Music/kits/lqs.wav");
+var kit20 = new Audio("Music/kits/rqs.wav");
+var kit21 = new Audio("Music/kits/backslash.wav");
 
 
 var keys = {
@@ -78,37 +74,55 @@ var keys = {
     "89": kit11,
     "90": long5,
     "186": long8,
-    "=": 187,
+    "187": kit17,
     ",": 188,
     "189": long10,
     ".": 123,
     "191": long9,
     "192": long1,
-    "[": 219,
-    "\\": 220,
-    "]": 221,
-    "'": 222
+    "219": kit19,
+    "220": kit21,
+    "221": kit20,
+    "222": kit18
 };
+
 window.onload = function() {
     window.onkeyup = function(e) {
         keys[e.keyCode].stop();
     	keys[e.keyCode].play();
-        document.getElementById("" + e.key.toLowerCase()).style.opacity = "1";
+        console.log(e.keyCode);
+        if((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 47 && e.keyCode < 58)) {
+            document.getElementById(String.fromCharCode(e.keyCode).toLowerCase()).style.opacity = "1";
+        } else if((e.keyCode > 185 & e.keyCode < 193) || (e.keyCode > 218 && e.keyCode < 223)) {
+            document.getElementById(e.key).style.opacity = "1";
+        }
     };
 
     window.onkeydown = function(e) {
-        document.getElementById("" + e.key.toLowerCase()).style.opacity = "0.60";
-    }
-}
+        if((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 47 && e.keyCode < 58)) {
+            document.getElementById(String.fromCharCode(e.keyCode).toLowerCase()).style.opacity = "0.60";
+        } else if((e.keyCode > 185 & e.keyCode < 193) || (e.keyCode > 218 && e.keyCode < 223)) {
+            document.getElementById(e.key).style.opacity = "0.60";
+        }
+    };
 
-function getKeyCode(key) {
-    switch(key) {
-        case 1:
+    window.onclick = function(e) {
+        console.log(e.srcElement.innerHTML.charCodeAt(0));
+        if(e.srcElement.className == "pinky"           ||
+           e.srcElement.className == "ringFinger"      ||
+           e.srcElement.className == "middleFinger"    ||
+           e.srcElement.className == "leftIndexFinger" ||
+           e.srcElement.className == "rightIndexFinger") {
+               if((e.srcElement.id.toUpperCase().charCodeAt(0) > 64 && e.srcElement.id.toUpperCase().charCodeAt(0) < 91) ||
+                  (e.srcElement.id.toUpperCase().charCodeAt(0) > 47 && e.srcElement.id.toUpperCase().charCodeAt(0) < 58)) {
+                      keys[e.srcElement.id.toUpperCase().charCodeAt(0)].stop();
+                      keys[e.srcElement.id.toUpperCase().charCodeAt(0)].play();
+                  }
+           }
     }
-}
+};
 
-HTMLAudioElement.prototype.stop = function()
-{
+HTMLAudioElement.prototype.stop = function() {
 	this.pause();
 	this.currentTime = 0.0;
-}
+};
