@@ -31,53 +31,66 @@ var kit19 = new Audio("Music/kits/lqs.wav");
 var kit20 = new Audio("Music/kits/rqs.wav");
 var kit21 = new Audio("Music/kits/backslash.wav");
 
+var cont1 = new Audio("Music/constractions/2.wav");
+var cont2 = new Audio("Music/constractions/3.wav");
+var cont3 = new Audio("Music/constractions/w.wav");
+var cont4 = new Audio("Music/constractions/e.wav");
+var cont5 = new Audio("Music/constractions/s.wav");
+var cont6 = new Audio("Music/constractions/d.wav");
+var cont7 = new Audio("Music/constractions/x.wav");
+var cont8 = new Audio("Music/constractions/c.wav");
+var cont9 = new Audio("Music/constractions/9.wav");
+var cont10 = new Audio("Music/constractions/8.wav");
+var cont11 = new Audio("Music/constractions/i.wav");
+var cont12 = new Audio("Music/constractions/o.wav");
+var cont13 = new Audio("Music/constractions/k.wav");
+var cont14 = new Audio("Music/constractions/l.wav");
+var cont15 = new Audio("Music/constractions/comma.wav");
+var cont16 = new Audio("Music/constractions/dot.wav");
+
 
 var keys = {
-    "tab": 9,
-    "enter": 13,
-    "shift": 16,
-    "capslock": 20,
     "48": long6,
     "49": long2,
-    "2": 50,
-    "3": 51,
+    "50": cont1,
+    "51": cont2,
     "52": kit1,
     "53": kit2,
     "54": kit9,
     "55": kit10,
-    "8": 56,
-    "9": 57,
+    "56": cont10,
+    "57": cont9,
     "65": long4,
     "66": kit8,
-    "c": 67,
-    "d": 68,
-    "e": 69,
+    "67": cont7,
+    "68": cont6,
+    "69": cont4,
     "70": kit5,
     "71": kit6,
     "72": kit13,
-    "i": 73,
+    "73": cont11,
     "74": kit14,
-    "k": 75,
-    "l": 76,
+    "75": cont13,
+    "76": cont14,
     "77": kit16,
     "78": kit15,
-    "o": 79,
+    "79": cont12,
     "80": long7,
     "81": long3,
     "82": kit3,
-    "s": 83,
+    "83": cont5,
     "84": kit4,
     "85": kit12,
     "86": kit7,
-    "w": 87,
-    "x": 88,
+    "87": cont3,
+    "88": cont8,
     "89": kit11,
     "90": long5,
     "186": long8,
     "187": kit17,
-    ",": 188,
+    "188": cont15,
     "189": long10,
-    ".": 123,
+    "190": cont16,
     "191": long9,
     "192": long1,
     "219": kit19,
@@ -88,26 +101,26 @@ var keys = {
 
 window.onload = function() {
     window.onkeyup = function(e) {
-        keys[e.keyCode].stop();
-    	keys[e.keyCode].play();
-        console.log(e.keyCode);
         if((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 47 && e.keyCode < 58)) {
             document.getElementById(String.fromCharCode(e.keyCode).toLowerCase()).style.opacity = "1";
+            keys[e.keyCode].stop();
         } else if((e.keyCode > 185 & e.keyCode < 193) || (e.keyCode > 218 && e.keyCode < 223)) {
             document.getElementById(e.key).style.opacity = "1";
+            keys[e.keyCode].stop();
         }
     };
 
     window.onkeydown = function(e) {
         if((e.keyCode > 64 && e.keyCode < 91) || (e.keyCode > 47 && e.keyCode < 58)) {
             document.getElementById(String.fromCharCode(e.keyCode).toLowerCase()).style.opacity = "0.60";
+            keys[e.keyCode].play();
         } else if((e.keyCode > 185 & e.keyCode < 193) || (e.keyCode > 218 && e.keyCode < 223)) {
             document.getElementById(e.key).style.opacity = "0.60";
+            keys[e.keyCode].play();
         }
     };
 
     window.onclick = function(e) {
-        console.log(e.srcElement.innerHTML.charCodeAt(0));
         if(e.srcElement.className == "pinky"           ||
            e.srcElement.className == "ringFinger"      ||
            e.srcElement.className == "middleFinger"    ||
@@ -119,7 +132,41 @@ window.onload = function() {
                       keys[e.srcElement.id.toUpperCase().charCodeAt(0)].play();
                   }
            }
-    }
+    };
+
+    document.getElementById("`").onclick = function() {
+        keys["192"].play();
+    };
+    document.getElementById("-").onclick = function() {
+        keys["189"].play();
+    };
+    document.getElementById("=").onclick = function() {
+        keys["187"].play();
+    };
+    document.getElementById("\\").onclick = function() {
+        keys["220"].play();
+    };
+    document.getElementById("]").onclick = function() {
+        keys["221"].play();
+    };
+    document.getElementById("[").onclick = function() {
+        keys["219"].play();
+    };
+    document.getElementById(";").onclick = function() {
+        keys["186"].play();
+    };
+    document.getElementById("'").onclick = function() {
+        keys["222"].play();
+    };
+    document.getElementById(".").onclick = function() {
+        keys["190"].play();
+    };
+    document.getElementById(",").onclick = function() {
+        keys["188"].play();
+    };
+    document.getElementById("/").onclick = function() {
+        keys["191"].play();
+    };
 };
 
 HTMLAudioElement.prototype.stop = function() {

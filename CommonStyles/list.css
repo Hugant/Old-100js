@@ -1,18 +1,15 @@
-*
-{
+* {
 	padding: 0;
 	margin: 0;
 	outline: none;
 }
 
-html
-{
+html {
 	background-color: #221F20;
-	background-image: url(../Images/dark-canvas.png);	
+	background-image: url(../Images/dark-canvas.png);
 }
 
-#title
-{
+#title {
 	text-align: center;
 	color: azure;
 	font-size: 60px;
@@ -25,8 +22,7 @@ html
 	cursor: default;
 }
 
-#list
-{
+#list {
 	width: 800px;
 	margin: 0 auto;
 	background: #383535;
@@ -37,16 +33,14 @@ html
 	font-family: "Open Sans Light";
 }
 
-h2
-{
+h2 {
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 	cursor: default;
 }
 
-p
-{
+p {
 	font-size: 20px;
 	-webkit-user-select: none;
     -moz-user-select: none;
@@ -54,24 +48,20 @@ p
 	cursor: default;
 }
 
-p a
-{
+p a {
 	color: #8DE3E9;
 	text-decoration: none;
 }
 
-p a:active
-{
+p a:active {
 	color: red;
 }
 
-p a:hover
-{
+p a:hover {
 	color: #7DC4C9;
 }
 
-ul
-{
+ul {
 	font-size: 17px;
 	-webkit-user-select: none;
     -moz-user-select: none;
@@ -79,44 +69,36 @@ ul
 	cursor: default;
 }
 
-ul li
-{
+ul li {
 	margin-left: 30px;
 }
 
-pre h2
-{
+pre h2 {
 	margin-bottom: -20px;
 }
 
-pre .jsT
-{
+pre .jsT {
 	color: #F05426;
 }
 
-pre .htmlT
-{
+pre .htmlT {
 	color: #4465E7;
 }
 
-pre .cssT
-{
+pre .cssT {
 	color: #5CB98B;
 }
 
-.home
-{
+.home {
 	right: 50px;
 	top: 20px;
 }
 
-.home:hover
-{
+.home:hover {
     border-color: darkgrey;
 	cursor: pointer;
 }
 
-.home:active
-{
+.home:active {
 	background: darkgrey;
 }
